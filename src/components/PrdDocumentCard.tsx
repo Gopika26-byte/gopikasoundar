@@ -1,6 +1,7 @@
 import { useEffect, useRef, type CSSProperties, type PointerEvent } from "react"
 import { ArrowUpRight, FileText } from "lucide-react"
 import { prdDocuments, type Tone } from "../data/site"
+import { publicPath } from "../lib/publicPath"
 
 type PrdDocument = (typeof prdDocuments)[number]
 
@@ -125,7 +126,7 @@ export function PrdDocumentCard({ document }: { document: PrdDocument }) {
           <div className="prd-doc-sheet prd-doc-sheet--rear" aria-hidden="true" />
           <div className="prd-doc-sheet prd-doc-sheet--mid" aria-hidden="true" />
           <a
-            href={document.href}
+            href={publicPath(document.href)}
             target="_blank"
             rel="noreferrer"
             className="prd-doc-paper"

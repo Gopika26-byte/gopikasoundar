@@ -4,6 +4,7 @@ import type { MouseEvent, ReactNode } from "react"
 import { TeardownArt } from "../components/TeardownArt"
 import { Reveal } from "../components/Reveal"
 import { PORTFOLIO_SCROLL_KEY, teardownPath, teardowns, type PortfolioNavState } from "../data/teardowns"
+import { publicPath } from "../lib/publicPath"
 
 export function ProductTeardowns() {
   return (
@@ -88,7 +89,7 @@ function TeardownLink({
   }
 
   return (
-    <a href={to} className={className} onClick={onClick}>
+    <a href={publicPath(to)} className={className} onClick={onClick}>
       {children}
     </a>
   )

@@ -18,6 +18,21 @@
     <title>Gopika — Product Manager</title>
   </head>
   <body>
+    <script>
+      // Restore the real path after GitHub Pages serves 404.html for a client route.
+      ;(function (location) {
+        if (location.search[1] === "/") {
+          var decoded = location.search
+            .slice(1)
+            .split("&")
+            .map(function (part) {
+              return part.replace(/~and~/g, "&")
+            })
+            .join("?")
+          window.history.replaceState(null, "", location.pathname.slice(0, -1) + decoded + location.hash)
+        }
+      })(window.location)
+    </script>
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
   </body>
