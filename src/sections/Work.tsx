@@ -21,12 +21,6 @@ export function Work() {
           <h2 className="display mt-3 text-[clamp(2.4rem,4vw,3.5rem)] text-ink">
             From problems to progress.
           </h2>
-          <p className="mt-4 text-sm leading-relaxed text-muted">
-            A few product journeys where I've worked on turning complex challenges into simple, meaningful solutions.
-          </p>
-          <p className="mt-3 text-sm leading-relaxed text-ink">
-            These three are independent exercises. They show how I would frame a problem. They are not roles, clients, or shipped products.
-          </p>
         </Reveal>
 
         <div className="work-showcases">
