@@ -1,5 +1,6 @@
 import { useEffect, useRef } from "react"
 import { BrowserRouter, Route, Routes, useLocation, useNavigationType } from "react-router-dom"
+import { ContactMenuProvider } from "./components/contact/ContactMenuProvider"
 import { Footer } from "./components/Footer"
 import { Nav } from "./components/Nav"
 import type { PortfolioNavState } from "./data/teardowns"
@@ -59,7 +60,7 @@ function Shell() {
   const showSiteFooter = pathname !== "/"
 
   return (
-    <>
+    <ContactMenuProvider>
       <a
         href="#content"
         className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[60] focus:rounded-lg focus:bg-white focus:px-3 focus:py-2"
@@ -86,7 +87,7 @@ function Shell() {
         </Routes>
       </div>
       {showSiteFooter ? <Footer /> : null}
-    </>
+    </ContactMenuProvider>
   )
 }
 

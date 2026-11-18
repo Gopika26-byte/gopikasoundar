@@ -1,5 +1,7 @@
 import { ArrowRight, ArrowUpRight, Compass, Heart, Target } from "lucide-react"
+import { useCallback } from "react"
 import heroImage from "../assets/hero-sunset.jpg"
+import { useContactMenu } from "../components/contact/ContactMenuProvider"
 import { OpenToWorkPill } from "../components/OpenToWorkPill"
 import { RotatingHeroText } from "../components/RotatingHeroText"
 import { SectionLink } from "../components/SectionLink"
@@ -14,6 +16,13 @@ const icons = {
 const washes = ["bg-peach", "bg-sage", "bg-lavender"]
 
 export function Hero() {
+  const { open, anchor, panelId, toggle, setAnchorNode } = useContactMenu()
+  const expanded = open && anchor === "hero"
+  const registerHero = useCallback(
+    (node: HTMLButtonElement | null) => setAnchorNode("hero", node),
+    [setAnchorNode],
+  )
+
   return (
     <section id="home" className="hero-wash relative isolate overflow-hidden">
       <div className="hero-art">
@@ -44,9 +53,17 @@ export function Hero() {
             <SectionLink id="work" className="btn btn-primary">
               Explore My Work <ArrowRight size={16} aria-hidden="true" />
             </SectionLink>
-            <SectionLink id="contact" className="btn btn-secondary">
+            <button
+              ref={registerHero}
+              type="button"
+              className="btn btn-secondary cursor-pointer"
+              aria-haspopup="dialog"
+              aria-expanded={expanded}
+              aria-controls={expanded ? panelId : undefined}
+              onClick={() => toggle("hero")}
+            >
               Let's Connect <ArrowUpRight size={16} aria-hidden="true" />
-            </SectionLink>
+            </button>
           </div>
         </div>
 

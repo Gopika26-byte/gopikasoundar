@@ -3056,9 +3056,8 @@ div[id] {
 
 /* Contact Me panel: anchored popover from 640px up, bottom sheet below. */
 .contact-popover {
-  position: absolute;
-  top: calc(100% + 1.15rem);
-  right: 0;
+  position: fixed;
+  z-index: 60;
   width: min(25rem, calc(100vw - 2rem));
   padding: 0.45rem;
   background: #fffefb;
@@ -3067,8 +3066,20 @@ div[id] {
   box-shadow:
     0 24px 60px rgba(60, 40, 24, 0.16),
     0 4px 14px rgba(60, 40, 24, 0.06);
-  transform-origin: top right;
+  transform-origin: top left;
   outline: none;
+}
+
+.contact-popover[data-align="end"] {
+  transform-origin: top right;
+}
+
+.contact-popover[data-place="above"] {
+  transform-origin: bottom left;
+}
+
+.contact-popover[data-place="above"][data-align="end"] {
+  transform-origin: bottom right;
 }
 
 .contact-popover[data-state="open"] {

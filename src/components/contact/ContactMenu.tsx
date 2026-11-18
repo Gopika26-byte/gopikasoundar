@@ -3,6 +3,7 @@ import {
   useCallback,
   useEffect,
   useId,
+  useLayoutEffect,
   useRef,
   useState,
   useSyncExternalStore,
@@ -12,6 +13,7 @@ import {
 } from "react"
 import { createPortal } from "react-dom"
 import { ContactPanelContent } from "./ContactPanelContent"
+import { useContactMenu } from "./ContactMenuProvider"
 
 const SHEET_QUERY = "(max-width: 639.98px)"
 const EXIT_MS = 220
@@ -44,27 +46,50 @@ function usePresence(open: boolean) {
 }
 
 const FOCUSABLE = 'a[href], button:not([disabled]), [tabindex]:not([tabindex="-1"])'
+const POPOVER_GAP = 18
+const POPOVER_MARGIN = 16
 
-type ContactMenuProps = {
-  open: boolean
-  onOpenChange: (open: boolean) => void
+function placePopover(panel: HTMLElement, anchor: HTMLElement) {
+  const rect = anchor.getBoundingClientRect()
+  const width = panel.offsetWidth
+  const height = panel.offsetHeight
+  const alignEnd = rect.left + rect.width / 2 > window.innerWidth / 2
+  let left = alignEnd ? rect.right - width : rect.left
+  left = Math.max(POPOVER_MARGIN, Math.min(left, window.innerWidth - width - POPOVER_MARGIN))
+
+  let top = rect.bottom + POPOVER_GAP
+  let place: "below" | "above" = "below"
+  if (top + height > window.innerHeight - POPOVER_MARGIN && rect.top - POPOVER_GAP - height >= POPOVER_MARGIN) {
+    top = rect.top - POPOVER_GAP - height
+    place = "above"
+  }
+
+  panel.style.left = `${left}px`
+  panel.style.top = `${top}px`
+  panel.dataset.align = alignEnd ? "end" : "start"
+  panel.dataset.place = place
 }
 
-export function ContactMenu({ open, onOpenChange }: ContactMenuProps) {
-  const triggerRef = useRef<HTMLButtonElement>(null)
+export function ContactMenu() {
+  const { open, anchor, panelId, toggle, close: closeMenu, setAnchorNode, anchorNode, isTriggerTarget } =
+    useContactMenu()
   const panelRef = useRef<HTMLDivElement>(null)
   const isSheet = useMediaQuery(SHEET_QUERY)
   const present = usePresence(open)
-  const panelId = useId()
   const titleId = useId()
   const state = open ? "open" : "closed"
+  const navExpanded = open && anchor === "nav"
+  const registerNav = useCallback(
+    (node: HTMLButtonElement | null) => setAnchorNode("nav", node),
+    [setAnchorNode],
+  )
 
   const close = useCallback(
     (restoreFocus: boolean) => {
-      onOpenChange(false)
-      if (restoreFocus) triggerRef.current?.focus({ preventScroll: true })
+      closeMenu()
+      if (restoreFocus) anchorNode(anchor)?.focus({ preventScroll: true })
     },
-    [onOpenChange],
+    [anchor, anchorNode, closeMenu],
   )
 
   useEffect(() => {
@@ -78,7 +103,7 @@ export function ContactMenu({ open, onOpenChange }: ContactMenuProps) {
     }
     const onPointerDown = (event: PointerEvent) => {
       const target = event.target as Node
-      if (panelRef.current?.contains(target) || triggerRef.current?.contains(target)) return
+      if (panelRef.current?.contains(target) || isTriggerTarget(target)) return
       close(isSheet)
     }
 
@@ -88,7 +113,23 @@ export function ContactMenu({ open, onOpenChange }: ContactMenuProps) {
       document.removeEventListener("keydown", onKeyDown)
       document.removeEventListener("pointerdown", onPointerDown)
     }
-  }, [open, isSheet, close])
+  }, [open, anchor, isSheet, close, isTriggerTarget])
+
+  useLayoutEffect(() => {
+    if (!open || isSheet) return
+    const panel = panelRef.current
+    const trigger = anchorNode(anchor)
+    if (!panel || !trigger) return
+
+    const place = () => placePopover(panel, trigger)
+    place()
+    window.addEventListener("scroll", place, true)
+    window.addEventListener("resize", place)
+    return () => {
+      window.removeEventListener("scroll", place, true)
+      window.removeEventListener("resize", place)
+    }
+  }, [open, anchor, isSheet, anchorNode])
 
   useEffect(() => {
     if (!open || !isSheet) return
@@ -105,42 +146,42 @@ export function ContactMenu({ open, onOpenChange }: ContactMenuProps) {
   return (
     <>
       <button
-        ref={triggerRef}
+        ref={registerNav}
         type="button"
         className="btn btn-primary !min-h-10 !px-3.5 !py-2 text-sm"
         aria-haspopup="dialog"
-        aria-expanded={open}
-        aria-controls={present ? panelId : undefined}
-        onClick={() => onOpenChange(!open)}
+        aria-expanded={navExpanded}
+        aria-controls={navExpanded ? panelId : undefined}
+        onClick={() => toggle("nav")}
       >
         Contact Me
       </button>
 
       {present &&
-        (isSheet ? (
-          createPortal(
+        createPortal(
+          isSheet ? (
             <ContactSheet
               panelRef={panelRef}
               panelId={panelId}
               titleId={titleId}
               state={state}
               onClose={() => close(true)}
-            />,
-            document.body,
-          )
-        ) : (
-          <div
-            ref={panelRef}
-            id={panelId}
-            className="contact-popover"
-            data-state={state}
-            role="dialog"
-            aria-label="Contact Gopika"
-            tabIndex={-1}
-          >
-            <ContactPanelContent />
-          </div>
-        ))}
+            />
+          ) : (
+            <div
+              ref={panelRef}
+              id={panelId}
+              className="contact-popover"
+              data-state={state}
+              role="dialog"
+              aria-label="Contact Gopika"
+              tabIndex={-1}
+            >
+              <ContactPanelContent />
+            </div>
+          ),
+          document.body,
+        )}
     </>
   )
 }

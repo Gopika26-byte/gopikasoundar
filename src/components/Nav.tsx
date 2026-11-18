@@ -3,13 +3,14 @@ import { useEffect, useId, useState } from "react"
 import { useLocation } from "react-router-dom"
 import { navItems, profile } from "../data/site"
 import { ContactMenu } from "./contact/ContactMenu"
+import { useContactMenu } from "./contact/ContactMenuProvider"
 import { Mark } from "./Mark"
 import { SectionLink } from "./SectionLink"
 
 export function Nav() {
   const [scrolled, setScrolled] = useState(false)
   const [open, setOpen] = useState(false)
-  const [contactOpen, setContactOpen] = useState(false)
+  const { open: contactOpen, close: closeContact } = useContactMenu()
   const [active, setActive] = useState("home")
   const location = useLocation()
   const menuId = useId()
@@ -39,6 +40,10 @@ export function Nav() {
     nodes.forEach((node) => observer.observe(node))
     return () => observer.disconnect()
   }, [location.pathname])
+
+  useEffect(() => {
+    if (contactOpen) setOpen(false)
+  }, [contactOpen])
 
   useEffect(() => {
     if (!open) return
@@ -83,13 +88,7 @@ export function Nav() {
           </div>
 
           <div className="relative flex items-center gap-2">
-            <ContactMenu
-              open={contactOpen}
-              onOpenChange={(next) => {
-                setContactOpen(next)
-                if (next) setOpen(false)
-              }}
-            />
+            <ContactMenu />
             <button
               type="button"
               className="grid h-10 w-10 place-items-center rounded-xl border border-line bg-white/70 text-ink lg:hidden"
@@ -97,7 +96,7 @@ export function Nav() {
               aria-controls={menuId}
               onClick={() => {
                 setOpen((value) => !value)
-                setContactOpen(false)
+                closeContact()
               }}
             >
               {open ? <X size={18} /> : <Menu size={18} />}
