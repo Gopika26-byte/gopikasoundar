@@ -90,9 +90,11 @@ function Shell() {
   )
 }
 
+const routerBasename = import.meta.env.BASE_URL.replace(/\/$/, "")
+
 export default function App() {
   return (
-    <BrowserRouter>
+    <BrowserRouter basename={routerBasename}>
       <Shell />
     </BrowserRouter>
   )

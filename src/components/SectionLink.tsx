@@ -1,5 +1,6 @@
 import { useLocation, useNavigate } from "react-router-dom"
 import type { ReactNode } from "react"
+import { publicPath } from "../lib/publicPath"
 
 type Props = {
   id: string
@@ -20,7 +21,7 @@ export function SectionLink({ id, className, children, onNavigate }: Props) {
 
   return (
     <a
-      href={`/#${id}`}
+      href={publicPath(`/#${id}`)}
       className={className}
       onClick={(event) => {
         event.preventDefault()
