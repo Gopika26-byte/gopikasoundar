@@ -39,26 +39,26 @@ export const hero = {
 
 export const prdDocuments = [
   {
-    slug: "onboarding",
-    category: "Feature PRD",
-    title: "Making onboarding feel effortless.",
+    slug: "myntra-loop",
+    category: "Resale & Loyalty Product PRD",
+    title: "Turning pre-loved fashion into future loyalty.",
     summary:
-      "A product specification focused on simplifying the onboarding journey, helping new users understand the product faster, complete their first meaningful action, and experience value sooner.",
-    tags: ["Problem Definition", "User Journey", "Functional Requirements"],
+      "A Myntra-managed resale experience that connects customers with unused fashion to a trusted pre-owned marketplace. Covers garment eligibility, transparent buyback valuation, doorstep pickup, quality inspection, Loop Points and resale operations.",
+    tags: ["Seller & Buyer Journeys", "Valuation & Buyback Logic", "Inspection & Resale Lifecycle"],
     tone: "peach" as const,
-    href: "/docs/making-onboarding-feel-effortless.pdf",
-    filename: "making-onboarding-feel-effortless.pdf",
+    href: "/docs/myntra-loop-prd.pdf",
+    filename: "myntra-loop-prd.pdf",
   },
   {
-    slug: "workflows",
-    category: "Platform PRD",
-    title: "Bringing clarity to complex workflows.",
+    slug: "catchmyvibe",
+    category: "AI-Native Travel Platform PRD",
+    title: "From a travel vibe to a bookable itinerary.",
     summary:
-      "A platform-focused specification exploring how to simplify a complex workflow through clear requirements, defined system behavior, dependencies, permissions, and thoughtful edge-case handling.",
-    tags: ["Workflow Design", "System Behavior", "Edge Cases"],
+      "An AI-native, multi-agent travel planning platform that transforms natural-language trip requests into personalised, budget-fit itineraries. Covers conversational intent capture, agent orchestration, real-time planning progress, provider-backed recommendations, budget optimisation and end-to-end booking.",
+    tags: ["Multi-Agent Orchestration", "Itinerary & Budget Engine", "Booking & Concierge Flow"],
     tone: "lavender" as const,
-    href: "/docs/bringing-clarity-to-complex-workflows.pdf",
-    filename: "bringing-clarity-to-complex-workflows.pdf",
+    href: "/docs/catchmyvibe-prd.pdf",
+    filename: "catchmyvibe-prd.pdf",
   },
 ]
 
