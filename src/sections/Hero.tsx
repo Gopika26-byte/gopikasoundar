@@ -46,7 +46,7 @@ export function Hero() {
               <RotatingHeroText />
             </span>
           </h1>
-          <p className="load-in mt-6 max-w-[38ch] text-base leading-relaxed text-muted sm:text-lg [animation-delay:180ms]">
+          <p className="load-in mt-6 max-w-[38ch] text-sm leading-relaxed text-muted sm:text-base [animation-delay:180ms]">
             {hero.intro}
           </p>
           <div className="load-in mt-8 flex flex-wrap gap-3 [animation-delay:280ms]">
