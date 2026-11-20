@@ -46,8 +46,7 @@ export const prdDocuments = [
       "A Myntra-managed resale experience that connects customers with unused fashion to a trusted pre-owned marketplace. Covers garment eligibility, transparent buyback valuation, doorstep pickup, quality inspection, Loop Points and resale operations.",
     tags: ["Seller & Buyer Journeys", "Valuation & Buyback Logic", "Inspection & Resale Lifecycle"],
     tone: "peach" as const,
-    href: "/docs/myntra-loop-prd.pdf",
-    filename: "myntra-loop-prd.pdf",
+    href: "https://app.notion.com/p/Product-Requirements-Document-PRD-414160f99a8880d3b149d53b02cec22c?source=copy_link",
   },
   {
     slug: "catchmyvibe",
@@ -57,8 +56,7 @@ export const prdDocuments = [
       "An AI-native, multi-agent travel planning platform that transforms natural-language trip requests into personalised, budget-fit itineraries. Covers conversational intent capture, agent orchestration, real-time planning progress, provider-backed recommendations, budget optimisation and end-to-end booking.",
     tags: ["Multi-Agent Orchestration", "Itinerary & Budget Engine", "Booking & Concierge Flow"],
     tone: "lavender" as const,
-    href: "/docs/catchmyvibe-prd.pdf",
-    filename: "catchmyvibe-prd.pdf",
+    href: "https://app.notion.com/p/Product-Requirements-Document-3a7160f99a8880c68f77e40f49819d4e?source=copy_link",
   },
 ]
 
