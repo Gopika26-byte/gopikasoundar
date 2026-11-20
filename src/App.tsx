@@ -30,7 +30,13 @@ function ScrollManager() {
 
     if (navigationType === "POP") {
       const saved = positions.current.get(location.key)
-      if (typeof saved === "number") {
+      const id = location.hash.slice(1)
+      const target = id ? document.getElementById(id) : null
+      const targetTop = target ? target.getBoundingClientRect().top + window.scrollY : null
+      const savedStillShowsSection =
+        typeof saved === "number" && targetTop !== null && saved >= targetTop - 120
+
+      if (typeof saved === "number" && (targetTop === null || savedStillShowsSection)) {
         window.scrollTo(0, saved)
         return
       }
