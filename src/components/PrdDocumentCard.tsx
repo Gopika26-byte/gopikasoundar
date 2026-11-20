@@ -128,7 +128,7 @@ export function PrdDocumentCard({ document }: { document: PrdDocument }) {
           <a
             href={publicPath(document.href)}
             target="_blank"
-            rel="noreferrer"
+            rel="noopener noreferrer"
             className="prd-doc-paper"
           >
             <span className="prd-doc-stripe" aria-hidden="true" />
@@ -137,7 +137,7 @@ export function PrdDocumentCard({ document }: { document: PrdDocument }) {
             <header className="prd-doc-header">
               <div>
                 <p className="prd-doc-category">{document.category}</p>
-                <p className="prd-doc-type">Independent exercise · PDF</p>
+                <p className="prd-doc-type">Independent exercise · Notion</p>
               </div>
               <span className="prd-doc-mark" aria-hidden="true">
                 <FileText size={16} strokeWidth={1.6} />
@@ -154,10 +154,10 @@ export function PrdDocumentCard({ document }: { document: PrdDocument }) {
             </ul>
 
             <footer className="prd-doc-footer">
-              <span className="prd-doc-pdf">PDF</span>
+              <span className="prd-doc-pdf">Notion</span>
               <span className="prd-doc-action">
                 View PRD
-                <span className="sr-only">, opens {document.filename} in a new tab</span>
+                <span className="sr-only">, opens in a new tab</span>
                 <ArrowUpRight className="prd-doc-arrow" size={16} aria-hidden="true" />
               </span>
             </footer>
