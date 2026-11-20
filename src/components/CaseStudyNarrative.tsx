@@ -1,5 +1,6 @@
 import type { MouseEvent } from "react"
 import { Link } from "react-router-dom"
+import { CaseStudyBars, CaseStudyStack } from "./CaseStudyChart"
 import type { CaseBlock, CaseNarrative } from "../data/myntraLoop"
 
 function scrollToCaseSection(event: MouseEvent<HTMLAnchorElement>, id: string) {
@@ -42,7 +43,13 @@ export function CaseStudyNarrative({
         {narrative.disclosure}
       </p>
       <div className="mt-8 overflow-hidden rounded-[24px] border border-line">
-        <img src={heroSrc} alt="" className="h-auto w-full object-cover" />
+        <img
+          src={heroSrc}
+          alt="Myntra Loop concept banner showing a phone with a circular fashion experience beside folded garments."
+          width={1024}
+          height={960}
+          className="h-auto w-full object-cover"
+        />
       </div>
 
       <div className="mt-12 lg:grid lg:grid-cols-[15rem_minmax(0,1fr)] lg:items-start lg:gap-10">
@@ -75,7 +82,11 @@ export function CaseStudyNarrative({
           </details>
 
           {narrative.sections.map((section) => (
-            <section key={section.id} id={section.id} className="case-section scroll-mt-28">
+            <section
+              key={section.id}
+              id={section.id}
+              className={section.emphasis ? "case-section case-section--emphasis scroll-mt-28" : "case-section scroll-mt-28"}
+            >
               <p className="text-sm text-coral-deep">{section.number}</p>
               <h2 className="mt-1 font-serif text-[clamp(1.8rem,3vw,2.4rem)] leading-tight text-ink">
                 {section.heading}
@@ -182,6 +193,10 @@ function BlockView({ block }: { block: CaseBlock }) {
           ))}
         </ol>
       )
+    case "bars":
+      return <CaseStudyBars block={block} />
+    case "stack":
+      return <CaseStudyStack block={block} />
     case "flow":
       return (
         <ol className="flex flex-wrap items-center gap-2">

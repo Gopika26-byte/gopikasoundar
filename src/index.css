@@ -1161,6 +1161,130 @@ div[id] {
   text-decoration: none;
 }
 
+.case-section--emphasis {
+  padding: 1.35rem 1.25rem 1.5rem;
+  border: 1px solid #e7d3c8;
+  border-radius: 24px;
+  background: #fffdfb;
+}
+
+.case-chart {
+  margin: 0.4rem 0;
+  padding: 1rem 1rem 0.9rem;
+  border: 1px solid #eadfd6;
+  border-radius: 18px;
+  background: #fff;
+}
+
+.case-chart figcaption {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.45rem 0.7rem;
+}
+
+.case-chart-title {
+  font-family: var(--font-serif);
+  font-size: 1.15rem;
+  color: #25231f;
+}
+
+.case-kind {
+  padding: 0.15rem 0.45rem;
+  border-radius: 999px;
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.case-kind--research {
+  background: #f6ddd2;
+  color: #8a3a30;
+}
+
+.case-kind--hypothesis {
+  background: #efe7df;
+  color: #5c564f;
+}
+
+.case-kind--illustrative {
+  background: #f8efe6;
+  color: #8a3a30;
+}
+
+.case-bar-list,
+.case-stack-legend {
+  margin: 0.85rem 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.case-bar-list li + li {
+  margin-top: 0.75rem;
+}
+
+.case-bar-meta,
+.case-stack-legend li {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  font-size: 0.88rem;
+  color: #3d3935;
+}
+
+.case-bar-track {
+  height: 0.5rem;
+  margin-top: 0.35rem;
+  overflow: hidden;
+  border-radius: 999px;
+  background: #f3ebe4;
+}
+
+.case-bar-fill {
+  height: 100%;
+  border-radius: inherit;
+  background: #d7a394;
+}
+
+.case-bar-fill--highlight {
+  background: #b84538;
+}
+
+.case-stack {
+  display: flex;
+  height: 0.85rem;
+  margin-top: 0.85rem;
+  overflow: hidden;
+  border-radius: 999px;
+  background: #f3ebe4;
+}
+
+.case-stack span:nth-child(1) {
+  background: #b84538;
+}
+
+.case-stack span:nth-child(2) {
+  background: #e7b5a6;
+}
+
+.case-stack span:nth-child(3) {
+  background: #8d8378;
+}
+
+.case-stack-legend {
+  display: grid;
+  gap: 0.35rem;
+  margin-top: 0.75rem;
+}
+
+.case-chart-note {
+  margin: 0.55rem 0 0;
+  font-size: 0.78rem;
+  line-height: 1.45;
+  color: #716b65;
+}
+
 .case-showcase-category {
   margin: 0;
   font-size: 0.72rem;

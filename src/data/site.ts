@@ -312,7 +312,7 @@ export const framework = [
       "Who is stuck, what they do today, what it costs them, and what we are explicitly not solving yet.",
     example:
       "In the planning exercise, the repeated request was “more dashboards.” The stall was the first screen asking for a whole financial life.",
-    study: "financial-planning",
+    study: "",
   },
   {
     id: "define",
@@ -351,7 +351,7 @@ export const framework = [
       "The one flow, the empty state, and the boundaries — including what support and legal need to know.",
     example:
       "The planning exercise keeps the first visit to a single decision, and says so on the screen.",
-    study: "financial-planning",
+    study: "",
   },
   {
     id: "deliver",

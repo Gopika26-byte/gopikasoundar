@@ -10,12 +10,29 @@ export type CaseBlock =
   | { type: "formula"; text: string }
   | { type: "steps"; items: { title: string; body: string }[] }
   | { type: "flow"; items: string[] }
+  | {
+      type: "bars"
+      title: string
+      kind: "research" | "hypothesis" | "illustrative"
+      max: number
+      items: { name: string; value: number; display: string; highlight?: boolean }[]
+      note?: string
+    }
+  | {
+      type: "stack"
+      title: string
+      kind: "illustrative"
+      totalLabel: string
+      parts: { name: string; value: number; display: string }[]
+      note?: string
+    }
 
 export type CaseSection = {
   id: string
   number: string
   label: string
   heading: string
+  emphasis?: boolean
   blocks: CaseBlock[]
 }
 
@@ -312,6 +329,26 @@ export const myntraLoopNarrative: CaseNarrative = {
             ["Interested in both buying and selling", "46"],
           ],
         },
+        {
+          type: "bars",
+          title: "Unused clothing ownership",
+          kind: "research",
+          max: 100,
+          items: [{ name: "Have at least one unused garment", value: 93, display: "93 of 100" }],
+          note: "Exploratory survey of 100 respondents.",
+        },
+        {
+          type: "bars",
+          title: "Seller-side barriers",
+          kind: "research",
+          max: 100,
+          items: [
+            { name: "Do not know where to sell", value: 46, display: "46" },
+            { name: "Find it difficult to find buyers", value: 33, display: "33" },
+            { name: "Have considered selling but never tried", value: 45, display: "45" },
+          ],
+          note: "Respondents out of 100. These findings are not mutually exclusive.",
+        },
         { type: "h3", text: "Buyer concerns" },
         {
           type: "table",
@@ -323,6 +360,19 @@ export const myntraLoopNarrative: CaseNarrative = {
             ["Wear and tear", "43"],
             ["Preferred trust-building measure: Platform quality inspection", "52"],
           ],
+        },
+        {
+          type: "bars",
+          title: "Buyer concerns",
+          kind: "research",
+          max: 100,
+          items: [
+            { name: "Hygiene", value: 58, display: "58" },
+            { name: "Stains or damage", value: 49, display: "49" },
+            { name: "Wear and tear", value: 43, display: "43" },
+            { name: "Prefer platform quality inspection", value: 52, display: "52" },
+          ],
+          note: "Multiple-selection responses are not necessarily mutually exclusive.",
         },
         { type: "h3", text: "Insight 1 — Unused clothing represents a potential supply opportunity" },
         {
@@ -474,6 +524,19 @@ export const myntraLoopNarrative: CaseNarrative = {
             ["Jeans", "4.03"],
             ["Dresses", "3.97"],
           ],
+        },
+        {
+          type: "bars",
+          title: "Preliminary category evaluation",
+          kind: "hypothesis",
+          max: 4.1,
+          items: [
+            { name: "Western tops", value: 4.1, display: "4.10" },
+            { name: "Branded kurta sets", value: 4.06, display: "4.06", highlight: true },
+            { name: "Jeans", value: 4.03, display: "4.03" },
+            { name: "Dresses", value: 3.97, display: "3.97" },
+          ],
+          note: "Preliminary product-management hypotheses, not measured category-level market demand.",
         },
         {
           type: "p",
@@ -700,6 +763,7 @@ export const myntraLoopNarrative: CaseNarrative = {
       number: "09",
       label: "Economics-First Valuation",
       heading: "Protecting Both Customer Trust and Business Viability",
+      emphasis: true,
       blocks: [
         {
           type: "p",
@@ -750,6 +814,18 @@ export const myntraLoopNarrative: CaseNarrative = {
             ["Maximum viable acquisition price", "₹450"],
           ],
           note: "₹800 − (₹50 + ₹60 + ₹40) − ₹200 = ₹450. All figures in this section are illustrative assumptions.",
+        },
+        {
+          type: "stack",
+          title: "How the ₹800 illustrative resale revenue is allocated",
+          kind: "illustrative",
+          totalLabel: "Expected net resale revenue ₹800",
+          parts: [
+            { name: "Maximum viable acquisition price", value: 450, display: "₹450" },
+            { name: "Operating costs", value: 150, display: "₹150" },
+            { name: "Target contribution", value: 200, display: "₹200" },
+          ],
+          note: "Operating costs are ₹50 + ₹60 + ₹40. Illustrative assumption, not Myntra financial data.",
         },
         { type: "h3", text: "Condition-based valuation" },
         {
@@ -981,6 +1057,17 @@ export const myntraLoopNarrative: CaseNarrative = {
             ["Contribution before other overheads", "₹190"],
           ],
           note: "₹600 − ₹410 = ₹190. These are illustrative assumptions, not actual Myntra cost data or validated financial projections.",
+        },
+        {
+          type: "stack",
+          title: "Illustrative ₹600 resale transaction",
+          kind: "illustrative",
+          totalLabel: "Resale selling price ₹600",
+          parts: [
+            { name: "Total costs", value: 410, display: "₹410" },
+            { name: "Contribution before other overheads", value: 190, display: "₹190" },
+          ],
+          note: "Separate from the valuation example above. Illustrative assumption, not a financial result.",
         },
         {
           type: "p",
@@ -1265,6 +1352,127 @@ export const myntraLoopNarrative: CaseNarrative = {
         {
           type: "p",
           text: "Objective: Validate whether customers are willing to purchase pre-owned garments.",
+        },
+        {
+          type: "list",
+          items: [
+            "Launch a limited pre-owned collection.",
+            "Display actual garment photographs.",
+            "Introduce consistent condition grading.",
+            "Communicate cleaning and preparation.",
+            "Provide clear return and refund information.",
+            "Monitor actual buyer transactions.",
+          ],
+        },
+        { type: "h3", text: "Phase 3 — Business, sustainability and retention validation" },
+        {
+          type: "p",
+          text: "Objective: Evaluate whether the complete model creates sustainable business value.",
+        },
+        {
+          type: "list",
+          items: [
+            "Track acquisition and processing costs.",
+            "Monitor realised resale prices and inventory ageing.",
+            "Measure successfully resold garments.",
+            "Track Loop Points redemption.",
+            "Compare repeat purchase behaviour against an appropriate baseline.",
+            "Evaluate contribution per acquired garment.",
+            "Establish a baseline for garment reuse and environmental impact.",
+          ],
+        },
+        { type: "h3", text: "Four strategic priorities" },
+        {
+          type: "steps",
+          items: [
+            {
+              title: "Make selling convenient",
+              body: "Enable existing Myntra customers to identify eligible garments, understand their indicative purchase value, schedule pickup and receive Loop Points after successful purchase.",
+            },
+            {
+              title: "Make buying trustworthy",
+              body: "Provide actual garment photographs, consistent condition grading, quality inspection, transparent cleaning information and clear purchase protection.",
+            },
+            {
+              title: "Make resale commercially viable",
+              body: "Establish disciplined garment sourcing, inspection, preparation, inventory management and resale processes.",
+            },
+            {
+              title: "Make sustainability measurable",
+              body: "Measure successful garment reuse and evaluate the environmental impact of the complete resale process rather than assuming that every resale transaction automatically creates a positive environmental outcome.",
+            },
+          ],
+        },
+        { type: "h3", text: "My final product decision" },
+        {
+          type: "p",
+          text: "Myntra Loop should begin with a focused category and controlled customer base.",
+        },
+        {
+          type: "p",
+          text: "Expansion should depend on evidence of seller participation, actual buyer demand, operational reliability, reliable valuation performance, sustainable full-cohort contribution and incremental customer value.",
+        },
+        {
+          type: "callout",
+          text: "The goal is not simply to create another resale channel. It is to explore how a fashion platform can create value beyond the initial purchase.",
+        },
+      ],
+    },
+    {
+      id: "closing",
+      number: "17",
+      label: "Closing Vision",
+      heading: "Fashion Shouldn't End With the First Purchase.",
+      blocks: [
+        {
+          type: "p",
+          text: "Myntra Loop explores an opportunity to transform unused garments into renewed customer and business value.",
+        },
+        {
+          type: "p",
+          text: "By allowing customers to recover value from eligible garments and making those garments accessible to new owners, Myntra can explore a more circular approach to fashion consumption.",
+        },
+        {
+          type: "p",
+          text: "The long-term vision is to create a managed resale ecosystem where customers can participate in both sides of the fashion lifecycle: selling what they no longer wear and discovering something new to them.",
+        },
+        {
+          type: "formula",
+          text: "Buy on Myntra. Wear it. Pass it back. Give fashion another life.",
+        },
+        { type: "h3", text: "About this case study" },
+        {
+          type: "p",
+          text: "Project: Myntra Loop — Turning Pre-Loved Fashion into Future Loyalty. Type: Independent Product Strategy & Management Case Study.",
+        },
+        { type: "h3", text: "Research conducted" },
+        {
+          type: "list",
+          items: [
+            "Exploratory survey: 100 respondents.",
+            "Customer interviews: 10 participants.",
+            "Industry stakeholder interviews: 2 operators.",
+          ],
+        },
+        { type: "h3", text: "Key product deliverables" },
+        {
+          type: "list",
+          items: [
+            "Problem discovery and research synthesis.",
+            "Customer segmentation and personas.",
+            "Product strategy and operating model selection.",
+            "Category prioritisation.",
+            "Economics-first valuation framework.",
+            "Seller and buyer user journeys.",
+            "MVP scope and product requirements.",
+            "Unit economics and business metrics.",
+            "Experimentation and validation roadmap.",
+            "Risk assessment and launch recommendation.",
+          ],
+        },
+        {
+          type: "callout",
+          text: "Myntra Loop is an independent portfolio concept. It has not been implemented, approved or validated by Myntra. All financial examples are illustrative, and the research findings are exploratory rather than representative market estimates.",
         },
       ],
     },
