@@ -1,4 +1,4 @@
-import { ArrowUpRight } from "lucide-react"
+import { ArrowUpRight, Lightbulb } from "lucide-react"
 import { useNavigate } from "react-router-dom"
 import type { MouseEvent, ReactNode } from "react"
 import { TeardownArt } from "../components/TeardownArt"
@@ -36,8 +36,21 @@ export function ProductTeardowns() {
                     {item.category}
                   </p>
                   <p className="mt-1 text-xs text-coral-deep">{item.product} · Independent analysis</p>
+                  {item.recognition ? (
+                    <div className="teardown-recognition">
+                      <p className="teardown-recognition-label">
+                        <Lightbulb size={14} strokeWidth={1.75} aria-hidden="true" />
+                        <span>{item.recognition.label}</span>
+                      </p>
+                      <p className="teardown-recognition-detail">{item.recognition.detail}</p>
+                    </div>
+                  ) : null}
                   <h3 className="mt-3 font-serif text-[1.45rem] leading-tight text-ink">
-                    <TeardownLink to={teardownPath(item.slug)} className="rounded-sm">
+                    <TeardownLink
+                      to={item.href ?? teardownPath(item.slug)}
+                      external={Boolean(item.href)}
+                      className="rounded-sm"
+                    >
                       {item.title}
                     </TeardownLink>
                   </h3>
@@ -50,10 +63,12 @@ export function ProductTeardowns() {
                     ))}
                   </ul>
                   <TeardownLink
-                    to={teardownPath(item.slug)}
+                    to={item.href ?? teardownPath(item.slug)}
+                    external={Boolean(item.href)}
                     className="group mt-auto inline-flex items-center gap-3 pt-5 text-sm text-ink"
                   >
                     {item.cta}
+                    {item.href ? <span className="sr-only">, opens in a new tab</span> : null}
                     <span className="grid h-10 w-10 place-items-center rounded-full border border-line bg-white transition duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5">
                       <ArrowUpRight size={16} aria-hidden="true" />
                     </span>
@@ -70,22 +85,33 @@ export function ProductTeardowns() {
 
 function TeardownLink({
   to,
+  external = false,
   className,
   children,
 }: {
   to: string
+  external?: boolean
   className?: string
   children: ReactNode
 }) {
   const navigate = useNavigate()
 
   function onClick(event: MouseEvent<HTMLAnchorElement>) {
+    if (external) return
     if (event.metaKey || event.ctrlKey || event.shiftKey || event.altKey || event.button !== 0) return
     event.preventDefault()
     const portfolioScroll = window.scrollY
     sessionStorage.setItem(PORTFOLIO_SCROLL_KEY, String(portfolioScroll))
     const state: PortfolioNavState = { fromPortfolio: true, portfolioScroll }
     navigate(to, { state })
+  }
+
+  if (external) {
+    return (
+      <a href={to} className={className} target="_blank" rel="noopener noreferrer" onClick={onClick}>
+        {children}
+      </a>
+    )
   }
 
   return (

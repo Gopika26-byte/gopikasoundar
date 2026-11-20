@@ -81,6 +81,39 @@ div[id] {
   box-shadow: 0 10px 30px rgba(70, 48, 30, 0.045);
 }
 
+.teardown-recognition {
+  margin-top: 0.85rem;
+  padding: 0.7rem 0.75rem 0.65rem;
+  border: 1px solid color-mix(in srgb, var(--color-coral) 28%, #f3e6df);
+  border-radius: 12px;
+  background: color-mix(in srgb, var(--color-coral) 14%, #fff8f5);
+}
+
+.teardown-recognition-label {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.4rem;
+  margin: 0;
+  font-size: 0.68rem;
+  font-weight: 600;
+  line-height: 1.45;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--color-coral-deep);
+}
+
+.teardown-recognition-label svg {
+  flex-shrink: 0;
+  margin-top: 0.12rem;
+}
+
+.teardown-recognition-detail {
+  margin: 0.35rem 0 0 1.25rem;
+  font-size: 0.78rem;
+  line-height: 1.4;
+  color: #8c4a3a;
+}
+
 .btn {
   display: inline-flex;
   align-items: center;
