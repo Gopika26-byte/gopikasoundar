@@ -29,6 +29,11 @@ export type Teardown = {
   tags: string[]
   tone: Tone
   cta: string
+  href?: string
+  recognition?: {
+    label: string
+    detail: string
+  }
   intro: string
   disclaimer: string
   sections: TeardownSection[]
@@ -36,142 +41,76 @@ export type Teardown = {
 
 export const teardowns: Teardown[] = [
   {
-    slug: "zepto-support",
-    category: "Customer experience",
-    product: "Zepto",
-    title: "A UX teardown of Zepto's customer support and complaint resolution experience",
+    slug: "swiggy-instamart",
+    category: "Product discovery",
+    product: "Swiggy Instamart",
+    title: "The 10-Minute Visibility Gap",
     summary:
-      "Exploring how customers navigate support and complaint resolution, where friction can emerge during an issue, and how the experience could become more transparent, reassuring, and effortless.",
-    tags: ["Customer Experience", "Support Journey", "UX Analysis"],
+      "What started as an everyday observation about delivery visibility became a public product conversation. My perspective received acknowledgement from a Swiggy product leader, opening up an interesting exploration of recipient uncertainty and ETA-first communication.",
+    tags: ["Product Discovery", "Product Strategy", "User Experience"],
     tone: "peach",
     cta: "Explore Teardown",
+    href: "https://app.notion.com/p/THE-10-MINUTE-VISIBILITY-GAP-40d160f99a8880aea212c35fc3ddfacb?source=copy_link",
+    recognition: {
+      label: "A product observation that reached Swiggy's product team",
+      detail: "Publicly acknowledged by a Swiggy product leader.",
+    },
     intro:
-      "This is an independent reading of a quick-commerce support job, with Zepto as the product in view. It is not an audit, not a recorded usability study, and not affiliated with Zepto. Where I have not sat with their current screens, the notes are hypotheses to check, not findings I am claiming as fact.",
-    disclaimer: "Independent analysis. Not affiliated with Zepto. No private data and no claimed support metrics.",
+      "An independent product teardown of the difference between delivery visibility in Swiggy Food and Swiggy Instamart. It is not an official Swiggy assignment. A public response from a Swiggy product leader acknowledged the observation. That response is not evidence that Swiggy changed the product, and it is not evidence that Swiggy adopted the ETA-first direction explored here.",
+    disclaimer:
+      "Independent analysis. Not affiliated with Swiggy. No claim that a public post caused a product change, and no claim that the proposed ETA-first direction was adopted.",
     sections: [
       {
-        heading: "Why this moment matters",
+        heading: "The observation",
         blocks: [
           {
             kind: "text",
             paragraphs: [
-              "In quick commerce the promise is measured in minutes. A missing item, a wrong item, or a bag that never arrives is not a later inconvenience. It is the order.",
-              "Support is part of the product. If the path from “something is wrong” to “I know what happens next” is slow or vague, the speed of delivery does not survive the complaint.",
+              "The starting point was an everyday difference in delivery visibility between Swiggy Food and Swiggy Instamart. Food made progress easier to see. Instamart left the person receiving the order with less to go on.",
             ],
           },
         ],
       },
       {
-        heading: "The job",
+        heading: "The problem",
         blocks: [
           {
             kind: "text",
             paragraphs: [
-              "A customer who already paid needs to name the problem, see a resolution they can understand, and know whether it is pending, approved, or finished. They should not have to retell an order the app already has.",
+              "The underlying problem was recipient uncertainty: not knowing how the delivery was progressing, or when it was likely to arrive.",
             ],
           },
         ],
       },
       {
-        heading: "The journey I would walk",
+        heading: "Three hypotheses",
         blocks: [
           {
             kind: "list",
-            intro: "These are the steps in the job, not a recording of a specific Zepto session.",
+            intro: "The exploration held three possible explanations open, rather than treating the gap as a missing feature.",
             items: [
-              "Notice the issue on a live or just-delivered order.",
-              "Find help from that order, not from a general help home.",
-              "Describe the problem in the customer’s words.",
-              "See what can actually be done: replace, refund, or neither, and why.",
-              "Watch the resolution move, instead of waiting on a single “we’re on it.”",
-              "Reach a close: money returned, item replaced, or a clear no.",
+              "Delivery speed versus feature investment.",
+              "Technology and architecture differences.",
+              "Privacy versus convenience.",
             ],
           },
         ],
       },
       {
-        heading: "Hypotheses, not claimed findings",
-        blocks: [
-          {
-            kind: "notes",
-            items: [
-              {
-                label: "Discoverability",
-                body: "Help that lives far from the item makes people hunt while the order is still the emotional center. I would check whether support starts on the order and on the specific item.",
-              },
-              {
-                label: "Clarity",
-                body: "Reason lists often use internal categories. I would check whether a person can say “the milk was missing” without guessing which label the company prefers.",
-              },
-              {
-                label: "Transparency",
-                body: "A ticket that does not say what was decided, or when, creates a second contact. I would look for a visible state: received, reviewing, resolved, and what “resolved” changed.",
-              },
-              {
-                label: "Reassurance",
-                body: "Refund and replacement are different promises. I would check that the screen says which one is happening, not a generic apology.",
-              },
-              {
-                label: "Effort",
-                body: "Asking for the order number, the items, and photos the app could already attach is friction. I would see what the customer still has to type.",
-              },
-            ],
-          },
-        ],
-      },
-      {
-        heading: "What I would change first",
-        blocks: [
-          {
-            kind: "text",
-            paragraphs: [
-              "Start from the order. One reason, in plain language. A resolution that names the outcome. A status the customer can reopen without starting over.",
-              "I would not begin with a new help center. The order is already the context.",
-            ],
-          },
-        ],
-      },
-      {
-        heading: "A resolution path",
+        heading: "Directions considered",
         blocks: [
           {
             kind: "list",
             items: [
-              "The order shows “Something wrong?” on the items that can still be disputed.",
-              "The customer picks the item and a plain reason. The order details are already attached.",
-              "The next screen says the outcome in one sentence, or says what is still being checked and by when.",
-              "The same order later shows the state. Closing the app does not hide it.",
+              "Contextual delivery communication.",
+              "ETA-first communication.",
+              "Permission-based shared tracking.",
             ],
           },
-        ],
-      },
-      {
-        heading: "Proposed measures",
-        blocks: [
           {
             kind: "text",
             paragraphs: [
-              "These are measures I would define before treating any change as a success. They are not Zepto’s numbers and not results I am reporting.",
-            ],
-          },
-          {
-            kind: "list",
-            items: [
-              "Time from opening the order issue to a stated outcome.",
-              "Share of issues completed without a second contact.",
-              "Repeat contacts about the same order.",
-              "A short rating only after the outcome is visible, not after the first message.",
-            ],
-          },
-        ],
-      },
-      {
-        heading: "Takeaway",
-        blocks: [
-          {
-            kind: "text",
-            paragraphs: [
-              "Speed creates a support problem that generic help cannot carry. The product already knows the order. The experience should use that, and it should say what happens next.",
+              "The recommended direction was ETA-first communication. This is a recommendation from an independent teardown, not a change Swiggy is reported to have shipped.",
             ],
           },
         ],
@@ -179,133 +118,79 @@ export const teardowns: Teardown[] = [
     ],
   },
   {
-    slug: "phonepe-account-recovery",
-    category: "Trust and account experience",
-    product: "PhonePe",
-    title: "Rethinking PhonePe's account recovery experience",
+    slug: "zepto-support",
+    category: "Customer experience",
+    product: "Zepto",
+    title: "A UX Teardown of Zepto's Customer Support & Complaint Resolution Experience",
     summary:
-      "Examining how users recover access to their accounts, the moments where trust and clarity matter most, and opportunities to make recovery more intuitive and reassuring.",
-    tags: ["Account Recovery", "Trust", "UX Analysis"],
+      "A firsthand teardown backed by 40 customer reviews, uncovering friction in automated complaint assessment, resolution flexibility and refund visibility, with recommendations to make support clearer and more customer-centric.",
+    tags: ["Complaint Resolution", "Support Journey", "UX Audit"],
     tone: "lavender",
     cta: "Explore Teardown",
+    href: "https://app.notion.com/p/A-UX-Teardown-of-Zepto-s-Customer-Support-Complaint-Resolution-Experience-40c160f99a8880af81b6d6d9a5adf3d0?source=copy_link",
     intro:
-      "This is an independent look at account recovery as a product problem, with PhonePe as the product in view. It is not a security review, not a claim of a flaw, and not affiliated with PhonePe. I am not publishing private account details or a step I have not verified on a current build.",
+      "An independent teardown of Zepto's customer support and complaint resolution experience. It draws on 40 publicly available customer reviews, a firsthand pass through the Zepto app, an actual complaint submission and resolution journey, and a competitive look at Blinkit and Swiggy Instamart. The proposed improvements are recommendations, not changes Zepto is reported to have implemented, and the interface concepts are not existing Zepto screens.",
     disclaimer:
-      "Independent analysis. Not affiliated with PhonePe. No security vulnerability is claimed. No recovery metrics are reported.",
+      "Independent analysis. Not affiliated with Zepto. No claim that the proposed improvements shipped, that Zepto never offers replacements, or that the recommendations were validated through experiments.",
     sections: [
       {
-        heading: "Why recovery is a product",
-        blocks: [
-          {
-            kind: "text",
-            paragraphs: [
-              "A payments account is not a casual login. Losing access means losing the way a person pays, receives, and proves who they are in the app. The recovery flow has to be strict and still understandable.",
-              "Trust here is not a softer password screen. It is the person knowing which account they are recovering, why a step failed, and what they can do next without guessing.",
-            ],
-          },
-        ],
-      },
-      {
-        heading: "The job",
+        heading: "How this was explored",
         blocks: [
           {
             kind: "list",
-            intro: "The path I would hold the live product against. This is the job, not a transcript of PhonePe’s current screens.",
             items: [
-              "Realize they cannot get in, and find recovery without already being signed in.",
-              "Identify the right account.",
-              "Complete the checks the product requires.",
-              "Understand a failure: wrong detail, locked step, or a wait.",
-              "See the next allowed action.",
-              "Land back in the account, or get a clear stop.",
+              "Analysis of 40 publicly available customer reviews.",
+              "Firsthand exploration of the Zepto application.",
+              "An actual complaint submission and resolution journey.",
+              "Competitive exploration of Blinkit and Swiggy Instamart.",
             ],
           },
         ],
       },
       {
-        heading: "What I would examine",
+        heading: "Findings",
         blocks: [
           {
             kind: "notes",
             items: [
               {
-                label: "Discoverability",
-                body: "Recovery often hides behind “login trouble.” I would check whether a locked-out person can find it from the signed-out screen in one obvious step.",
+                label: "Automated assessment",
+                body: "Lack of clarity during automated complaint assessment.",
               },
               {
-                label: "Which account",
-                body: "People have more than one number or email in memory. I would look for a confirmation of which account is being recovered before the hard checks begin.",
+                label: "Resolution flexibility",
+                body: "Limited resolution flexibility in the tested flow. This is a reading of that flow, not a claim that Zepto never offers replacements.",
               },
               {
-                label: "Failed steps",
-                body: "A red error that only says “try again” teaches nothing. I would look for a reason they can act on, without the screen revealing a way around the check.",
-              },
-              {
-                label: "Waiting",
-                body: "Some checks are not instant. I would see whether the product says that a wait is expected, and where the person can look later.",
-              },
-              {
-                label: "Reassurance",
-                body: "Security copy that only says “for your protection” can feel like a wall. I would look for one sentence on what the check is protecting and what success looks like.",
+                label: "Refund visibility",
+                body: "Greater visibility was needed into post-resolution refund status.",
               },
             ],
           },
         ],
       },
       {
-        heading: "A boundary",
-        blocks: [
-          {
-            kind: "text",
-            paragraphs: [
-              "Making recovery clearer is not the same as making it easier to pass. I would not recommend fewer checks. I would recommend that every check explains itself, and that a failure does not dump the person at the start with no memory of how far they got.",
-            ],
-          },
-        ],
-      },
-      {
-        heading: "A recovery path I would test",
+        heading: "Proposed improvements",
         blocks: [
           {
             kind: "list",
+            intro:
+              "These are independent recommendations. They are not existing Zepto interfaces, and they have not been validated through experiments.",
             items: [
-              "Signed-out screen: one entry, “Can’t access your account?”",
-              "Confirm the account with a masked hint before verification starts.",
-              "Show the steps up front, including any step that may take time.",
-              "On failure, stay on that step, say what was wrong, and keep the earlier confirmations.",
-              "On success, say that access is restored and what, if anything, was limited for a short time.",
+              "Transparent Complaint Assessment.",
+              "Flexible Resolution — Replace or Refund.",
+              "Clear Refund Status & Progress Tracking.",
             ],
           },
         ],
       },
       {
-        heading: "Proposed measures",
+        heading: "What I would do first",
         blocks: [
           {
             kind: "text",
             paragraphs: [
-              "Proposed only. These are not PhonePe’s figures.",
-            ],
-          },
-          {
-            kind: "list",
-            items: [
-              "Share of recovery attempts that finish.",
-              "Time from the first recovery screen to access, or to a clear stop.",
-              "Drop-off at each step.",
-              "Support contacts that are only “I can’t get in.”",
-              "Share of attempts that pass verification on the first try, read beside drop-off so speed is not mistaken for weaker checks.",
-            ],
-          },
-        ],
-      },
-      {
-        heading: "Takeaway",
-        blocks: [
-          {
-            kind: "text",
-            paragraphs: [
-              "Account recovery is a trust product. The person should leave every step knowing whether they are closer to access, what failed, and what they are allowed to do next. Clarity is not a weaker lock.",
+              "The prioritisation decision was to address Transparent Complaint Assessment first. In the firsthand journey, the initial automated assessment was inconclusive, while a subsequent priority review approved a ₹25 refund.",
             ],
           },
         ],

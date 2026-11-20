@@ -14,12 +14,30 @@ export function TeardownArt({ slug, tone }: { slug: string; tone: Tone }) {
       <title id={`${slug}-teardown-art`}>Illustrative sketch for an independent product analysis</title>
       <rect width="360" height="240" fill={color.wash} />
       <rect x="28" y="28" width="304" height="184" rx="16" fill={color.paper} />
+      {slug === "swiggy-instamart" && <VisibilitySketch color={color} />}
       {slug === "zepto-support" && <SupportSketch color={color} />}
       {slug === "phonepe-account-recovery" && <RecoverySketch color={color} />}
       <text x="44" y="196" fill={color.ink} fontSize="10" fontFamily="Inter, sans-serif" opacity="0.7">
         Independent sketch
       </text>
     </svg>
+  )
+}
+
+function VisibilitySketch({ color }: { color: { ink: string; accent: string } }) {
+  return (
+    <>
+      <rect x="118" y="40" width="124" height="148" rx="16" fill="#fff" />
+      <rect x="156" y="50" width="48" height="5" rx="2.5" fill={color.ink} opacity="0.18" />
+      <text x="140" y="84" fill={color.ink} fontSize="15" fontFamily="Inter, sans-serif">
+        10 min
+      </text>
+      <rect x="136" y="96" width="88" height="6" rx="3" fill={color.ink} opacity="0.14" />
+      <rect x="136" y="96" width="54" height="6" rx="3" fill={color.accent} />
+      <circle cx="148" cy="124" r="5" fill={color.accent} />
+      <rect x="160" y="121" width="62" height="6" rx="3" fill={color.ink} opacity="0.25" />
+      <rect x="136" y="142" width="88" height="22" rx="8" fill={color.accent} opacity="0.28" />
+    </>
   )
 }
 
