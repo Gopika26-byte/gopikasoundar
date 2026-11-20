@@ -18,6 +18,8 @@ type MediumArticleCoverProps = {
   description: string
   author: string
   href: string
+  readingTime: string
+  published: string
   tone: Tone
 }
 
@@ -29,6 +31,8 @@ export function MediumArticleCover({
   description,
   author,
   href,
+  readingTime,
+  published,
   tone,
 }: MediumArticleCoverProps) {
   const linked = href.length > 0
@@ -48,6 +52,11 @@ export function MediumArticleCover({
       </h3>
       <p className="medium-cover-description">{description}</p>
       <p className="medium-cover-byline">By {author}</p>
+      {readingTime || published ? (
+        <p className="medium-cover-meta">
+          {[readingTime, published].filter(Boolean).join(" · ")}
+        </p>
+      ) : null}
       <span className="medium-cover-action">
         Read article
         <ArrowUpRight size={16} aria-hidden="true" />

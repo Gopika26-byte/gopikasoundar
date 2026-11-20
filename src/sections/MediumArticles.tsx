@@ -27,6 +27,8 @@ export function MediumArticles() {
                 description={article.description}
                 author={profile.name}
                 href={article.url}
+                readingTime={article.readingTime}
+                published={article.published}
                 tone={article.tone}
               />
             </Reveal>
