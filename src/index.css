@@ -50,8 +50,17 @@ body {
 }
 
 section[id],
-div[id] {
+div[id],
+h2[id] {
   scroll-margin-top: 6.5rem;
+}
+
+#home {
+  scroll-margin-top: 0;
+}
+
+#work-start {
+  scroll-margin-top: 13.5rem;
 }
 
 .glass {

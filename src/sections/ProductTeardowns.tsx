@@ -10,7 +10,7 @@ export function ProductTeardowns() {
   return (
     <section id="teardowns" className="bg-white/40" aria-labelledby="teardowns-heading">
       <div className="mx-auto max-w-[1120px] px-5 py-20 sm:px-8 md:py-28">
-        <Reveal>
+        <Reveal id="teardowns-start">
           <p className="eyebrow">Product teardowns</p>
           <h2 id="teardowns-heading" className="display mt-3 text-[clamp(2.4rem,4vw,3.5rem)] text-ink">
             Looking closer. Thinking deeper.

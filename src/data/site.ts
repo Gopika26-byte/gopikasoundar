@@ -19,12 +19,12 @@ export const profile = {
 }
 
 export const navItems = [
-  { id: "home", label: "Home" },
-  { id: "about", label: "About" },
-  { id: "experience", label: "Experience" },
-  { id: "work", label: "Work" },
-  { id: "writing", label: "Thoughts" },
-  { id: "contact", label: "Let's Connect" },
+  { id: "home", label: "Home", section: "home" },
+  { id: "about-heading", label: "About Me", section: "about" },
+  { id: "work-start", label: "Featured Work", section: "work" },
+  { id: "documentation-start", label: "PRDs", section: "documentation" },
+  { id: "teardowns-start", label: "Product Teardowns", section: "teardowns" },
+  { id: "experience-start", label: "Experience", section: "experience" },
 ] as const
 
 export const hero = {

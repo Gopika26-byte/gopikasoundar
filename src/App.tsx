@@ -50,6 +50,10 @@ function ScrollManager() {
     if (location.hash) {
       const id = location.hash.slice(1)
       const timer = window.setTimeout(() => {
+        if (id === "home") {
+          window.scrollTo({ top: 0, behavior: reduce ? "auto" : "smooth" })
+          return
+        }
         document.getElementById(id)?.scrollIntoView({ behavior: reduce ? "auto" : "smooth" })
       }, 40)
       return () => window.clearTimeout(timer)

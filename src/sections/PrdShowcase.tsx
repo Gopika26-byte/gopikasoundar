@@ -6,7 +6,7 @@ export function PrdShowcase() {
   return (
     <section id="documentation" className="bg-white/40" aria-labelledby="documentation-heading">
       <div className="mx-auto max-w-[1120px] px-5 py-20 sm:px-8 md:py-28">
-        <Reveal>
+        <Reveal id="documentation-start">
           <p className="eyebrow">Product documentation (PRDs)</p>
           <h2 id="documentation-heading" className="display mt-3 text-[clamp(2.4rem,4vw,3.5rem)] text-ink">
             How I turn ideas into product specs.

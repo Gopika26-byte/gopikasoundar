@@ -4,9 +4,10 @@ type Props = {
   children: ReactNode
   className?: string
   delay?: number
+  id?: string
 }
 
-export function Reveal({ children, className = "", delay = 0 }: Props) {
+export function Reveal({ children, className = "", delay = 0, id }: Props) {
   const ref = useRef<HTMLDivElement>(null)
   const [shown, setShown] = useState(
     () => typeof window !== "undefined" && window.matchMedia("(prefers-reduced-motion: reduce)").matches,
@@ -31,6 +32,7 @@ export function Reveal({ children, className = "", delay = 0 }: Props) {
   return (
     <div
       ref={ref}
+      id={id}
       className={`reveal ${shown ? "is-in" : ""} ${className}`}
       style={{ transitionDelay: `${delay}ms` }}
     >

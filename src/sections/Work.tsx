@@ -23,7 +23,7 @@ export function Work() {
           </h2>
         </Reveal>
 
-        <div className="work-showcases">
+        <div id="work-start" className="work-showcases">
           {caseStudies.map((study, index) => (
             <Reveal key={study.slug} delay={index * 90}>
               <CaseStudyShowcase
