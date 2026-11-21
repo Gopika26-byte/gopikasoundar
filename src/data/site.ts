@@ -101,16 +101,28 @@ export const mediumArticles = [
 export const about = {
   heading: "From Troubleshooting Problems to Building Better Products",
   paragraphs: [
-    "My journey into Product Management began with five years of experience as a Technical Support Engineer at Cognizant, where I currently work closely with application issues, user challenges, and operational workflows across 100+ applications in the agriculture domain.",
-    "Working as Technical Support Engineer has given me a ground-level understanding of how products perform in real-world environments. I regularly investigate recurring issues, identify patterns, coordinate with development teams, and help resolve problems that directly impact users.",
-    "Over time, I realised that what interested me most wasn't just fixing issues but understanding why they happened, who they affected, and how the product could evolve to prevent them.",
-    "That curiosity gradually drew me towards Product Management.",
-    "To make this transition, I invested in learning Product Management, Generative AI, and Agentic AI through the BITSOM–Masai program. I began applying these concepts through hands-on projects, product teardowns, user research, and independent case studies.",
-    "Today, I'm bringing together my technical foundation, problem-solving experience, and growing product mindset to pursue my journey as a Product Manager.",
-    "My perspective has evolved: From resolving what went wrong to discovering what could be built better.",
+    {
+      text: "My journey began as a Technical Support Engineer at Cognizant, working across 100+ applications in the agriculture domain. Investigating recurring issues and collaborating with development teams gave me a firsthand understanding of user pain points and how products perform in real-world situations.",
+    },
+    {
+      text: "Over time, I became more curious about why problems existed and how products could prevent them, rather than simply resolving them.",
+      emphasis: "why problems existed and how products could prevent them",
+    },
+    {
+      text: "That curiosity led me to Product Management.",
+      variant: "turn" as const,
+    },
+    {
+      text: "I began building that mindset through product management, Generative AI and Agentic AI learning at BITSOM–Masai, alongside hands-on projects, product teardowns, user research and independent case studies.",
+    },
+    {
+      text: "Today, I'm bringing my technical experience and problem-solving mindset into product thinking—focusing on what can be built better and why it matters.",
+    },
+    {
+      text: "My perspective has evolved: from resolving what went wrong to discovering what could be built better.",
+      variant: "closing" as const,
+    },
   ],
-  emphasis:
-    "why they happened, who they affected, and how the product could evolve to prevent them.",
   name: "Gopika",
   designationFrom: "Technical Support Engineer",
   designationInto: "Transitioning into",

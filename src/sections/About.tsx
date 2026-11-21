@@ -24,7 +24,7 @@ function NoteParagraph({
   return (
     <p className={className}>
       {text.slice(0, start)}
-      <em>{emphasis}</em>
+      <strong>{emphasis}</strong>
       {text.slice(start + emphasis.length)}
     </p>
   )
@@ -40,10 +40,6 @@ function BinderClip() {
 }
 
 export function About() {
-  const lastIndex = about.paragraphs.length - 1
-  const variantFor = (index: number): ParagraphVariant =>
-    index === lastIndex ? "closing" : index === 3 ? "turn" : "body"
-
   return (
     <section id="about" className="about-note-section" aria-labelledby="about-heading">
       <div className="about-note-inner mx-auto max-w-[1120px] px-5 sm:px-8">
@@ -73,12 +69,12 @@ export function About() {
               </figure>
 
               <div className="note-story">
-                {about.paragraphs.map((paragraph, index) => (
+                {about.paragraphs.map((paragraph) => (
                   <NoteParagraph
-                    key={paragraph}
-                    text={paragraph}
-                    emphasis={index === 2 ? about.emphasis : undefined}
-                    variant={variantFor(index)}
+                    key={paragraph.text}
+                    text={paragraph.text}
+                    emphasis={paragraph.emphasis}
+                    variant={paragraph.variant}
                   />
                 ))}
               </div>
