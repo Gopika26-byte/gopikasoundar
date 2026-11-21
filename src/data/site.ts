@@ -4,6 +4,8 @@
  * Case studies, lab scenarios, and notes are independent exercises — not employment history.
  */
 
+import { myntraLoopNarrative, type CaseNarrative } from "./myntraLoop"
+
 export const profile = {
   name: "Gopika",
   roleLabel: "Product Manager",
@@ -17,12 +19,12 @@ export const profile = {
 }
 
 export const navItems = [
-  { id: "home", label: "Home" },
-  { id: "about", label: "About" },
-  { id: "experience", label: "Experience" },
-  { id: "work", label: "Work" },
-  { id: "writing", label: "Thoughts" },
-  { id: "contact", label: "Let's Connect" },
+  { id: "home", label: "Home", section: "home" },
+  { id: "about-heading", label: "About Me", section: "about" },
+  { id: "work-start", label: "Featured Work", section: "work" },
+  { id: "documentation-start", label: "PRDs", section: "documentation" },
+  { id: "teardowns-start", label: "Product Teardowns", section: "teardowns" },
+  { id: "experience-start", label: "Experience", section: "experience" },
 ] as const
 
 export const hero = {
@@ -130,6 +132,8 @@ export type CaseStudy = {
   summary: string
   tags: string[]
   tone: Tone
+  status?: string
+  narrative?: CaseNarrative
   problem: string
   context: string
   approach: { title: string; body: string }[]
@@ -140,54 +144,56 @@ export type CaseStudy = {
 
 export const caseStudies: CaseStudy[] = [
   {
-    slug: "financial-planning",
-    category: "B2C product",
-    title: "Turning Pre-Loved Fashion into Future Loyalty — Myntra LꝎP",
+    slug: "myntra-loop",
+    category: "B2C product · Fashion · Circular commerce",
+    title: "Turning Pre-Loved Fashion into Future Loyalty — Myntra Loop",
     summary:
-      "An independent exercise in simplifying a first session so someone can make one clear decision, instead of facing their entire financial life at once.",
-    tags: ["Product Discovery", "User Research", "Strategy"],
+      "An independent product strategy case study exploring how Myntra could turn unused branded clothing into a managed resale experience through outright buyback, transparent valuation, quality inspection and Loop Points.",
+    tags: ["Product Strategy", "User Research", "Business Model Design"],
     tone: "peach",
+    status: "Independent product strategy & management case study",
+    narrative: myntraLoopNarrative,
     problem:
-      "Many planning tools open by asking for a complete picture: accounts, goals, dependents, risk tolerance. People who already feel behind close the tab.",
+      "Customers who stop wearing clothes in usable condition lack a convenient way to recover value, while people who would buy branded pre-owned fashion hesitate over hygiene, condition and reliability.",
     context:
-      "This is a practice case, not a product I shipped and not a client engagement. It explores how I would frame the problem before drawing screens.",
+      "An independent product concept. It is not an official Myntra assignment, and it does not claim that Myntra adopted the proposal.",
     approach: [
       {
-        title: "Name the job of the first visit",
-        body: "The first session only has to help someone decide what to look at next. Completeness can wait.",
+        title: "Research both sides",
+        body: "An exploratory survey of 100 people and 10 interviews, plus two operator conversations, before defining the product.",
       },
       {
-        title: "Interview for the stall, not the feature",
-        body: "I would ask where people stop, what they were afraid of getting wrong, and what “enough for today” would feel like.",
+        title: "Choose a managed buyback",
+        body: "Myntra would purchase eligible garments outright, inspect them, and resell them, rather than leaving customers to run a peer-to-peer listing.",
       },
       {
-        title: "Shrink the ask",
-        body: "One question, one recommendation, and a plain explanation of what was left out on purpose.",
+        title: "Price from the economics",
+        body: "The minimum guaranteed value comes from the lowest accepted condition grade, not from an arbitrary incentive.",
       },
     ],
     decisions: [
-      "Progressive detail over a long setup form.",
-      "Language a person would use with a friend, not a glossary of products.",
-      "A visible “not financial advice” boundary so trust is not implied.",
+      "Outright buyback instead of consignment or a peer-to-peer marketplace.",
+      "Start with branded women's kurta sets.",
+      "Acquire inventory only as buyer demand is demonstrated.",
     ],
     measure: [
       {
-        metric: "First-session completion",
-        why: "Did more people finish the one decision we asked them to make?",
+        metric: "Contribution per acquired garment",
+        why: "Sold-garment profit does not capture unsold stock, rejections, or returns.",
       },
       {
-        metric: "Return within seven days",
-        why: "A calm first visit only matters if people come back for the next one.",
+        metric: "Successfully resold garments",
+        why: "The operating outcome is garments that are both purchased from sellers and sold to buyers.",
       },
       {
-        metric: "Support questions about “what does this mean?”",
-        why: "A drop suggests the language got clearer. A spike says we hid the wrong detail.",
+        metric: "Inspection and sell-through",
+        why: "A pilot has to show that collected garments can be prepared and actually resold.",
       },
     ],
     assumptions: [
-      "The main drop-off is cognitive load, not lack of motivation.",
-      "People will accept an incomplete picture if the product says what it skipped.",
-      "A single next step is more useful than a dashboard on day one.",
+      "Eligible customers will submit Myntra-purchased garments.",
+      "Buyers will purchase pre-owned garments when condition is visible.",
+      "The full cohort can produce a sustainable contribution. These are assumptions to test, not results.",
     ],
   },
   {
@@ -306,7 +312,7 @@ export const framework = [
       "Who is stuck, what they do today, what it costs them, and what we are explicitly not solving yet.",
     example:
       "In the planning exercise, the repeated request was “more dashboards.” The stall was the first screen asking for a whole financial life.",
-    study: "financial-planning",
+    study: "",
   },
   {
     id: "define",
@@ -345,7 +351,7 @@ export const framework = [
       "The one flow, the empty state, and the boundaries — including what support and legal need to know.",
     example:
       "The planning exercise keeps the first visit to a single decision, and says so on the screen.",
-    study: "financial-planning",
+    study: "",
   },
   {
     id: "deliver",

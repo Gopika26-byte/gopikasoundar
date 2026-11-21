@@ -7,7 +7,7 @@ import trustedCircleVisual from "../assets/trusted-circle-savings.jpg"
 import { caseStudies } from "../data/site"
 
 const caseStudyVisuals: Record<string, string> = {
-  "financial-planning": myntraLoopVisual,
+  "myntra-loop": myntraLoopVisual,
   "creator-ecosystem": catchMyVibeVisual,
   "team-collaboration": trustedCircleVisual,
 }
@@ -23,12 +23,12 @@ export function Work() {
           </h2>
         </Reveal>
 
-        <div className="work-showcases">
+        <div id="work-start" className="work-showcases">
           {caseStudies.map((study, index) => (
             <Reveal key={study.slug} delay={index * 90}>
               <CaseStudyShowcase
                 category={study.category}
-                status="Independent exercise"
+                status={study.status ?? "Independent exercise"}
                 title={study.title}
                 description={study.summary}
                 tags={study.tags}

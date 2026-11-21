@@ -11,7 +11,12 @@ type Props = {
 
 export function scrollToSection(id: string) {
   const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches
-  document.getElementById(id)?.scrollIntoView({ behavior: reduce ? "auto" : "smooth" })
+  const behavior = reduce ? "auto" : "smooth"
+  if (id === "home") {
+    window.scrollTo({ top: 0, behavior })
+  } else {
+    document.getElementById(id)?.scrollIntoView({ behavior })
+  }
   window.history.replaceState(null, "", `#${id}`)
 }
 

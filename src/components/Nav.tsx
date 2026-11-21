@@ -24,21 +24,20 @@ export function Nav() {
 
   useEffect(() => {
     if (location.pathname !== "/") return
-    const nodes = navItems
-      .map((item) => document.getElementById(item.id))
-      .filter((node): node is HTMLElement => Boolean(node))
-    const observer = new IntersectionObserver(
-      (entries) => {
-        const visible = entries
-          .filter((entry) => entry.isIntersecting)
-          .sort((a, b) => b.intersectionRatio - a.intersectionRatio)
-        const id = visible[0]?.target.id
-        if (id) setActive(id)
-      },
-      { rootMargin: "-35% 0px -50% 0px", threshold: [0.1, 0.25, 0.5] },
-    )
-    nodes.forEach((node) => observer.observe(node))
-    return () => observer.disconnect()
+    const updateActive = () => {
+      const line = window.scrollY + (document.querySelector("nav")?.getBoundingClientRect().bottom ?? 96) + 24
+      let current = navItems[0].id
+      for (const item of navItems) {
+        const node = document.getElementById(item.section)
+        if (!node) continue
+        const top = node.getBoundingClientRect().top + window.scrollY
+        if (top <= line) current = item.id
+      }
+      setActive(current)
+    }
+    updateActive()
+    window.addEventListener("scroll", updateActive, { passive: true })
+    return () => window.removeEventListener("scroll", updateActive)
   }, [location.pathname])
 
   useEffect(() => {
@@ -55,7 +54,7 @@ export function Nav() {
   }, [open])
 
   const linkClass = (id: string) =>
-    `rounded-lg px-3 py-2 text-sm transition-colors duration-150 ${
+    `whitespace-nowrap rounded-lg px-2 py-2 text-sm transition-colors duration-150 xl:px-2.5 ${
       location.pathname === "/" && active === id
         ? "bg-peach/80 text-ink"
         : "text-muted hover:text-ink"
@@ -66,7 +65,7 @@ export function Nav() {
       <nav
         aria-label="Primary"
         className={`pointer-events-auto w-full rounded-2xl transition-all duration-300 ease-out ${
-          scrolled ? "glass-strong max-w-[1120px]" : "glass max-w-[860px]"
+          scrolled ? "glass-strong max-w-[1180px]" : "glass max-w-[1080px]"
         }`}
       >
         <div className="flex items-center justify-between gap-3 px-3 py-2 sm:px-4">
