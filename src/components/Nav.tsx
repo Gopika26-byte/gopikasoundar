@@ -11,7 +11,7 @@ export function Nav() {
   const [scrolled, setScrolled] = useState(false)
   const [open, setOpen] = useState(false)
   const { open: contactOpen, close: closeContact } = useContactMenu()
-  const [active, setActive] = useState("home")
+  const [active, setActive] = useState<(typeof navItems)[number]["id"]>("home")
   const location = useLocation()
   const menuId = useId()
 
@@ -26,7 +26,7 @@ export function Nav() {
     if (location.pathname !== "/") return
     const updateActive = () => {
       const line = window.scrollY + (document.querySelector("nav")?.getBoundingClientRect().bottom ?? 96) + 24
-      let current = navItems[0].id
+      let current: (typeof navItems)[number]["id"] = navItems[0].id
       for (const item of navItems) {
         const node = document.getElementById(item.section)
         if (!node) continue
