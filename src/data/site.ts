@@ -160,7 +160,7 @@ export const caseStudies: CaseStudy[] = [
     category: "B2C product · Fashion · Circular commerce",
     title: "Turning Pre-Loved Fashion into Future Loyalty — Myntra Loop",
     summary:
-      "An independent product strategy case study exploring how Myntra could turn unused branded clothing into a managed resale experience through outright buyback, transparent valuation, quality inspection and Loop Points.",
+      "Buy back unused branded clothing and resell it, with clear valuation and Loop Points.",
     tags: ["Product Strategy", "User Research", "Business Model Design"],
     tone: "peach",
     status: "Independent product strategy & management case study",
@@ -213,7 +213,7 @@ export const caseStudies: CaseStudy[] = [
     category: "Marketplace",
     title: "CatchMyVibe - Multi-Agent Travel Planning System",
     summary:
-      "An independent exercise on discovery in a two-sided marketplace: less browsing, clearer signals, and a fairer chance for newer creators.",
+      "Less browsing and clearer signals in a two-sided marketplace, with a fairer start for newer creators.",
     tags: ["Growth", "User Research", "Go-to-Market"],
     tone: "lavender",
     problem:
@@ -264,7 +264,7 @@ export const caseStudies: CaseStudy[] = [
     category: "B2B platform",
     title: "A Product Discovery Case Study on Trusted-Circle Group Savings",
     summary:
-      "An independent exercise on a B2B workflow: helping a cross-functional team see what is blocked, who owns it, and what can wait.",
+      "Show a team what is blocked, who owns it, and what can wait, without another status meeting.",
     tags: ["Execution", "Strategy", "Analytics"],
     tone: "sage",
     problem:
