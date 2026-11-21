@@ -2060,7 +2060,7 @@ h2[id] {
 .about-note-section {
   position: relative;
   overflow: hidden;
-  padding: 5rem 0 5.75rem;
+  padding: 3.25rem 0 3.5rem;
   background:
     radial-gradient(60rem 26rem at 16% 32%, rgba(255, 255, 255, 0.55), transparent 65%),
     radial-gradient(48rem 24rem at 86% 74%, rgba(203, 218, 236, 0.6), transparent 70%),
@@ -2075,9 +2075,10 @@ h2[id] {
 
 .about-heading {
   margin: 0;
-  max-width: 12.5em;
+  max-width: 14em;
   font-size: clamp(1.9rem, 4.4vw, 3.15rem);
   line-height: 1.12;
+  text-wrap: balance;
   color: var(--color-ink);
 }
 
@@ -2087,7 +2088,7 @@ h2[id] {
 }
 
 .note-reveal {
-  margin-top: 3.4rem;
+  margin-top: 3.15rem;
 }
 
 .note-stage {
@@ -2108,7 +2109,7 @@ h2[id] {
 
 .note-paper {
   position: relative;
-  padding: 3.4rem 1.35rem 1.6rem;
+  padding: 2.7rem 1.15rem 1.2rem;
   border-radius: 6px;
   background-color: #fbf9f3;
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0.45 0 0 0 0 0.4 0 0 0 0 0.32 0 0 0 0.07 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
@@ -2163,9 +2164,9 @@ h2[id] {
 .note-photo {
   position: relative;
   z-index: 2;
-  float: right;
-  width: 6.4rem;
-  margin: -0.5rem -0.25rem 0.9rem 1.1rem;
+  float: none;
+  width: 6.6rem;
+  margin: 0 auto 0.75rem;
   padding: 0.32rem 0.32rem 0.85rem;
   background: #fff;
   box-shadow: 0 6px 16px rgba(40, 50, 70, 0.18);
@@ -2193,45 +2194,41 @@ h2[id] {
   transform: translateX(-50%) rotate(-4deg);
 }
 
-.note-story {
-  max-width: 40rem;
-}
-
 .note-p {
   margin: 0;
   font-size: 0.97rem;
-  line-height: 1.75;
+  line-height: 1.65;
   color: #5b5650;
 }
 
 .note-p + .note-p {
-  margin-top: 1.1rem;
+  margin-top: 0.7rem;
 }
 
-.note-p em {
-  font-style: italic;
+.note-p strong {
+  font-weight: 650;
   color: var(--color-ink);
 }
 
 .note-p.note-p--turn {
-  margin-top: 1.5rem;
-  margin-bottom: 0.4rem;
+  margin-top: 0.95rem;
+  margin-bottom: 0.15rem;
   padding-left: 0.95rem;
   border-left: 2px solid var(--color-coral-deep);
   font-family: var(--font-serif);
-  font-size: 1.4rem;
+  font-size: 1.35rem;
   font-style: italic;
-  line-height: 1.3;
+  line-height: 1.28;
   color: var(--color-ink);
 }
 
 .note-p.note-p--closing {
-  margin-top: 2rem;
-  padding-top: 1.5rem;
+  margin-top: 1.05rem;
+  padding-top: 0.9rem;
   border-top: 1px solid rgba(113, 107, 101, 0.22);
   font-family: var(--font-serif);
-  font-size: clamp(1.45rem, 2.6vw, 1.95rem);
-  line-height: 1.25;
+  font-size: clamp(1.28rem, 2.2vw, 1.7rem);
+  line-height: 1.28;
   letter-spacing: -0.01em;
   color: var(--color-ink);
 }
@@ -2244,8 +2241,8 @@ h2[id] {
   clear: both;
   display: grid;
   gap: 1.5rem;
-  margin-top: 2.4rem;
-  padding-top: 1.6rem;
+  margin-top: 1.35rem;
+  padding-top: 1.05rem;
   border-top: 1px dashed rgba(113, 107, 101, 0.35);
 }
 
@@ -2353,12 +2350,13 @@ h2[id] {
 
 @media (min-width: 640px) {
   .note-paper {
-    padding: 4rem 2.75rem 2.2rem;
+    padding: 3.05rem 2.1rem 1.4rem;
   }
 
   .note-photo {
-    width: 8.25rem;
-    margin: -0.75rem -0.5rem 1rem 1.5rem;
+    float: right;
+    width: 7.4rem;
+    margin: 0 0 0.45rem 1.25rem;
   }
 
   .note-p {
@@ -2372,29 +2370,25 @@ h2[id] {
 
 @media (min-width: 900px) {
   .about-note-section {
-    padding: 6.5rem 0 7rem;
+    padding: 4.25rem 0 4.5rem;
   }
 
   .about-heading {
-    max-width: 13.5em;
+    max-width: 18em;
   }
 
   .note-reveal {
-    margin-top: 4rem;
+    margin-top: 3.2rem;
   }
 
   .note-paper {
-    padding: 4.75rem 4.5rem 2.75rem;
+    padding: 3.25rem 3rem 1.55rem;
   }
 
   .note-photo {
-    position: absolute;
-    top: 2.6rem;
-    right: 3.25rem;
-    float: none;
-    width: 11rem;
-    margin: 0;
-    padding: 0.42rem 0.42rem 1.1rem;
+    width: 9.5rem;
+    margin: 0.1rem 0 0.55rem 1.6rem;
+    padding: 0.38rem 0.38rem 0.95rem;
     transform: rotate(3.5deg);
   }
 
@@ -2416,8 +2410,8 @@ h2[id] {
     grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr);
     gap: 2.5rem;
     align-items: start;
-    margin-top: 2.8rem;
-    padding-top: 1.9rem;
+    margin-top: 1.45rem;
+    padding-top: 1.15rem;
   }
 
   .note-credential {
