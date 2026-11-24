@@ -431,6 +431,43 @@ h2[id] {
   padding-bottom: 13.5rem;
 }
 
+.hero-copy-column {
+  max-width: 36rem;
+}
+
+.hero-intro {
+  max-width: 40ch;
+  font-size: 0.875rem;
+  line-height: 1.625;
+}
+
+@media (min-width: 640px) {
+  .hero-intro {
+    max-width: 30ch;
+    font-size: 1rem;
+    line-height: 1.625;
+  }
+}
+
+@media (min-width: 1280px) {
+  .hero-copy-column {
+    max-width: 42rem;
+  }
+
+  .hero-intro {
+    max-width: 42rem;
+    font-size: 1.375rem;
+    line-height: 1.45;
+  }
+}
+
+@media (min-width: 1600px) {
+  .hero-copy-column,
+  .hero-intro {
+    max-width: 45.5rem;
+  }
+}
+
 .hero-highlights {
   display: flex;
   flex-direction: column;
