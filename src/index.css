@@ -2102,32 +2102,6 @@ h2[id] {
   color: #49372f;
 }
 
-.journey-land {
-  position: absolute;
-  inset: auto 0 0;
-  height: 7.5rem;
-  pointer-events: none;
-}
-
-.journey-hill {
-  position: absolute;
-  bottom: -1.5rem;
-  height: 5.5rem;
-  border-radius: 50% 50% 0 0;
-}
-
-.journey-hill--left {
-  left: -4rem;
-  width: 16rem;
-  background: #f6efe4;
-}
-
-.journey-hill--right {
-  right: -3rem;
-  width: 22rem;
-  background: #f4efe8;
-}
-
 .journey-kicker {
   margin: 0 0 0.7rem;
   color: #e98c76;

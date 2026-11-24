@@ -73,11 +73,6 @@ export function About() {
 
   return (
     <section id="about" className="journey-about" aria-labelledby="about-heading">
-      <div className="journey-land" aria-hidden="true">
-        <span className="journey-hill journey-hill--left" />
-        <span className="journey-hill journey-hill--right" />
-      </div>
-
       <div className="journey-about-inner mx-auto max-w-[1120px] px-5 sm:px-8">
         <Reveal>
           <p className="journey-kicker">{about.kicker}</p>
