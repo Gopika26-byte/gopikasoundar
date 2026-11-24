@@ -31,7 +31,7 @@ export const hero = {
   eyebrow: "Product Manager",
   lines: ["Building", "what's next,", "for people."],
   intro:
-    "I'm Gopika, an aspiring Product Manager who loves turning customer pain points into meaningful product opportunities through research, data-driven decisions, and thoughtful problem-solving.",
+    "I'm Gopika. I have a habit of questioning confusing buttons, investigating frustrating user journeys, and wondering, 'Could we make this better?' I turn those little curiosities into meaningful product ideas using research, data, and a whole lot of problem-solving.",
   capabilities: [
     { title: "Product Strategy & Execution.", icon: "compass" as const },
     { title: "User-Centric Problem Solving.", icon: "heart" as const },
