@@ -189,7 +189,7 @@ export function ExperienceEducationSection() {
                   </p>
                 </div>
                 <div className="foundation-brand foundation-brand--srm">
-                  <img src={srmLogo} alt="SRM Institute of Science and Technology, Ramapuram" />
+                  <img src={srmLogo} alt="SRM Institute of Science and Technology" />
                 </div>
               </article>
               <article className="foundation-qual">
