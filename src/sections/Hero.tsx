@@ -35,7 +35,7 @@ export function Hero() {
       </div>
 
       <div className="hero-copy relative z-10 mx-auto flex max-w-[1180px] flex-col justify-center px-5 pt-28 sm:px-8">
-        <div className="max-w-xl">
+        <div className="hero-copy-column">
           <div className="hero-kicker load-in">
             <p className="eyebrow">{hero.eyebrow}</p>
             <OpenToWorkPill />
@@ -46,7 +46,7 @@ export function Hero() {
               <RotatingHeroText />
             </span>
           </h1>
-          <p className="load-in mt-6 max-w-[38ch] text-sm leading-relaxed text-muted sm:text-base [animation-delay:180ms]">
+          <p className="hero-intro load-in mt-6 text-muted [animation-delay:180ms]">
             {hero.intro}
           </p>
           <div className="load-in mt-8 flex flex-wrap gap-3 [animation-delay:280ms]">

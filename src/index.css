@@ -431,6 +431,28 @@ h2[id] {
   padding-bottom: 13.5rem;
 }
 
+.hero-copy-column {
+  max-width: 36rem;
+}
+
+.hero-intro {
+  max-width: 100%;
+  font-size: 0.875rem;
+  line-height: 1.625;
+}
+
+@media (min-width: 768px) {
+  .hero-copy-column {
+    max-width: 45.5rem;
+  }
+
+  .hero-intro {
+    max-width: 36rem;
+    font-size: 1.0625rem;
+    line-height: 1.5;
+  }
+}
+
 .hero-highlights {
   display: flex;
   flex-direction: column;
