@@ -107,7 +107,7 @@ export const about = {
       step: "01",
       eyebrow: "Where I started",
       title: "Seeing products up close.",
-      body: "At Cognizant, I support 100+ applications in the agriculture domain, resolving issues and understanding real user pain points.",
+      body: "At Cognizant, I work as a Technical Support Engineer, supporting 100+ applications in the crop science domain. Troubleshooting recurring issues has given me a firsthand understanding of real user pain points.",
       tone: "peach" as const,
     },
     {

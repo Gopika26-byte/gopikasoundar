@@ -2409,6 +2409,11 @@ h2[id] {
     padding: 1.35rem 1.15rem 1.2rem;
   }
 
+  .journey-milestone--peach,
+  .journey-milestone--cream {
+    align-content: center;
+  }
+
   .journey-body {
     font-size: 0.98rem;
   }
