@@ -2,6 +2,7 @@ import { Reveal } from "../components/Reveal"
 import annaLogo from "../assets/anna-university.png"
 import bitsomLogo from "../assets/bitsom.jpg"
 import masaiLogo from "../assets/masai.png"
+import srmLogo from "../assets/srm-ramapuram.png"
 
 const duties = [
   {
@@ -187,8 +188,8 @@ export function ExperienceEducationSection() {
                     Built a strong foundation in computer science and core technology concepts.
                   </p>
                 </div>
-                <div className="foundation-brand">
-                  <p className="foundation-school">SRM Institute of Science and Technology</p>
+                <div className="foundation-brand foundation-brand--srm">
+                  <img src={srmLogo} alt="SRM Institute of Science and Technology, Ramapuram" />
                 </div>
               </article>
               <article className="foundation-qual">
