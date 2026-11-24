@@ -1,5 +1,5 @@
-import { ArrowUpRight, Lightbulb } from "lucide-react"
-import { useState, type MouseEvent, type ReactNode } from "react"
+import { ArrowUpRight, Award } from "lucide-react"
+import type { MouseEvent, ReactNode } from "react"
 import { useNavigate } from "react-router-dom"
 import swiggyLogo from "../assets/swiggy-logo.svg"
 import swiggyVisual from "../assets/swiggy-teardown.jpg"
@@ -32,7 +32,7 @@ export function ProductTeardowns() {
         <Reveal id="teardowns-start">
           <p className="eyebrow">Product teardowns</p>
           <h2 id="teardowns-heading" className="display mt-3 text-[clamp(2.4rem,4vw,3.5rem)] text-ink">
-            Looking closer. Thinking deeper.
+            Looking closer. <em>Thinking deeper.</em>
           </h2>
           <p className="mt-4 text-sm leading-relaxed text-muted sm:text-base">
             Every product has a story behind its decisions. I enjoy exploring those decisions,
@@ -54,10 +54,8 @@ export function ProductTeardowns() {
 }
 
 function TeardownCard({ item }: { item: Teardown }) {
-  const [open, setOpen] = useState(false)
   const logo = teardownLogos[item.slug]
   const visual = teardownVisuals[item.slug]
-  const insightId = `${item.slug}-insight`
   const destination = item.href ?? teardownPath(item.slug)
 
   return (
@@ -67,67 +65,31 @@ function TeardownCard({ item }: { item: Teardown }) {
         {logo ? <img className={`teardown-logo teardown-logo--${item.slug}`} src={logo.src} alt={logo.alt} /> : null}
       </div>
       <div className="flex flex-1 flex-col p-5">
-        <p className="text-[0.7rem] font-semibold tracking-[0.16em] text-muted uppercase">
-          {item.category}
-        </p>
-        <p className="mt-1 text-xs text-coral-deep">{item.product} · Independent analysis</p>
-        {item.recognition ? (
-          <div className="teardown-recognition">
-            <p className="teardown-recognition-label">
-              <Lightbulb size={14} strokeWidth={1.75} aria-hidden="true" />
-              <span>{item.recognition.label}</span>
-            </p>
-            <p className="teardown-recognition-detail">{item.recognition.detail}</p>
-          </div>
-        ) : null}
-        <h3 className="mt-3 font-serif text-[1.45rem] leading-tight text-ink">
-          <TeardownLink to={destination} external={Boolean(item.href)} className="rounded-sm">
-            {item.title}
-          </TeardownLink>
-        </h3>
+        <p className="text-[0.7rem] font-semibold tracking-[0.16em] text-muted uppercase">{item.category}</p>
+        <h3 className="mt-2 font-serif text-[1.55rem] leading-tight text-ink">{item.title}</h3>
         <p className="mt-3 text-sm leading-relaxed text-muted">{item.summary}</p>
-        {item.insight ? (
-          <>
-            <button
-              type="button"
-              className="teardown-insight-toggle"
-              aria-expanded={open}
-              aria-controls={insightId}
-              onClick={() => setOpen((current) => !current)}
-            >
-              {open ? "Hide the insight" : "Discover the insight"}
-              <span aria-hidden="true">{open ? "↑" : "↓"}</span>
-            </button>
-            <div id={insightId} className={`teardown-insight${open ? " is-open" : ""}`}>
-              <div className="teardown-insight-inner">
-                <div className="teardown-insight-panel">
-                  <p>The product observation</p>
-                  <p>{item.insight.observation}</p>
-                  <p>The product opportunity</p>
-                  <p>{item.insight.opportunity}</p>
-                </div>
-              </div>
-            </div>
-          </>
-        ) : null}
-        <ul className="mt-4 flex flex-wrap gap-2">
+        <ul className="teardown-tags">
           {item.tags.map((tag) => (
-            <li key={tag} className="rounded-full bg-ivory px-2.5 py-1 text-xs text-ink">
-              {tag}
-            </li>
+            <li key={tag}>{tag}</li>
           ))}
         </ul>
-        <TeardownLink
-          to={destination}
-          external={Boolean(item.href)}
-          className="teardown-explore mt-auto inline-flex items-center gap-3 pt-5 text-sm text-ink"
-        >
-          {item.cta}
-          {item.href ? <span className="sr-only">, opens in a new tab</span> : null}
-          <span className="teardown-explore-arrow grid h-10 w-10 place-items-center rounded-full border border-line bg-white">
-            <ArrowUpRight size={16} aria-hidden="true" />
-          </span>
-        </TeardownLink>
+        <div className="teardown-actions">
+          {item.recognition ? (
+            <p className="teardown-ack">
+              <Award size={15} strokeWidth={1.75} aria-hidden="true" />
+              {item.recognition.label}
+            </p>
+          ) : null}
+          <TeardownLink
+            to={destination}
+            external={Boolean(item.href)}
+            className="teardown-explore"
+          >
+            {item.cta}
+            {item.href ? <span className="sr-only">, opens in a new tab</span> : null}
+            <ArrowUpRight className="teardown-explore-arrow" size={16} aria-hidden="true" />
+          </TeardownLink>
+        </div>
       </div>
     </article>
   )

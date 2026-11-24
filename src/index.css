@@ -172,99 +172,92 @@ h2[id] {
   width: min(34%, 7.25rem);
 }
 
-.teardown-insight-toggle {
+#teardowns-heading em {
+  font-style: italic;
+}
+
+.teardown-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+  margin: 1rem 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.teardown-tags li {
+  padding: 0.32rem 0.72rem;
+  border: 1px solid #f0cfc4;
+  border-radius: 999px;
+  color: #8a6a60;
+  font-size: 0.78rem;
+  line-height: 1.3;
+}
+
+.teardown-card--lavender .teardown-tags li {
+  border-color: #ddd3e8;
+  color: #6d5a86;
+}
+
+.teardown-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.65rem;
+  margin-top: auto;
+  padding-top: 1.15rem;
+}
+
+.teardown-ack {
   display: inline-flex;
   align-items: center;
-  gap: 0.35rem;
-  align-self: flex-start;
-  margin-top: 0.85rem;
-  min-height: 2.75rem;
-  padding: 0.35rem 0;
-  border: 0;
-  background: transparent;
-  color: #8c4a3a;
-  font-size: 0.84rem;
-  font-weight: 650;
-  line-height: 1.3;
-  cursor: pointer;
-}
-
-.teardown-card--lavender .teardown-insight-toggle {
-  color: #5c4e68;
-}
-
-.teardown-insight-toggle:focus-visible {
-  outline: 2px solid currentColor;
-  outline-offset: 3px;
-  border-radius: 4px;
-}
-
-.teardown-insight {
-  display: grid;
-  grid-template-rows: 0fr;
-  transition: grid-template-rows 260ms ease;
-}
-
-.teardown-insight.is-open {
-  grid-template-rows: 1fr;
-}
-
-.teardown-insight-inner {
-  overflow: hidden;
-}
-
-.teardown-insight-panel {
-  margin-top: 0.15rem;
-  padding: 0.75rem 0.8rem 0.7rem;
-  border: 1px solid #f3ddd4;
-  border-radius: 12px;
-  background: #fff8f5;
-}
-
-.teardown-card--lavender .teardown-insight-panel {
-  border-color: #e4dceb;
-  background: #fbf8fd;
-}
-
-.teardown-insight-panel p {
+  gap: 0.4rem;
   margin: 0;
-}
-
-.teardown-insight-panel p:nth-child(odd) {
-  font-size: 0.68rem;
-  font-weight: 650;
-  letter-spacing: 0.06em;
-  line-height: 1.4;
-  text-transform: uppercase;
-  color: #8c4a3a;
-}
-
-.teardown-card--lavender .teardown-insight-panel p:nth-child(odd) {
-  color: #5c4e68;
-}
-
-.teardown-insight-panel p:nth-child(even) {
-  margin-top: 0.28rem;
-  color: #756a65;
-  font-size: 0.84rem;
-  line-height: 1.5;
-}
-
-.teardown-insight-panel p:nth-child(3) {
-  margin-top: 0.7rem;
+  padding: 0.42rem 0.75rem;
+  border: 1px solid #f3c7ba;
+  border-radius: 999px;
+  color: #d06a58;
+  font-size: 0.78rem;
+  font-weight: 600;
+  line-height: 1.3;
 }
 
 .teardown-explore {
-  transition: color 240ms ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  margin-left: auto;
+  padding: 0.5rem 0.9rem;
+  border: 1.5px solid #f0a090;
+  border-radius: 999px;
+  color: #e07a62;
+  font-size: 0.88rem;
+  font-weight: 600;
+  line-height: 1.2;
+  text-decoration: none;
+  transition:
+    color 240ms ease,
+    background-color 240ms ease,
+    border-color 240ms ease;
+}
+
+.teardown-card--lavender .teardown-explore {
+  border-color: #c9b8dc;
+  color: #6d5a86;
 }
 
 .teardown-card--peach .teardown-explore:hover,
 .teardown-card--peach .teardown-explore:focus-visible {
+  background: #fff4f0;
+  border-color: #e98c76;
   color: #c45c4c;
 }
 
 .teardown-card--lavender .teardown-explore:hover,
 .teardown-card--lavender .teardown-explore:focus-visible {
+  background: #f8f4fb;
+  border-color: #b7a4cc;
   color: #5c4e68;
 }
 
@@ -285,7 +278,6 @@ h2[id] {
 
 @media (prefers-reduced-motion: reduce) {
   .teardown-card,
-  .teardown-insight,
   .teardown-explore,
   .teardown-explore-arrow {
     transition: none;
