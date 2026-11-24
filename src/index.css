@@ -3683,7 +3683,7 @@ a.contact-row:focus-visible .contact-row-action svg {
 }
 
 .foundation {
-  background: #fffaf7;
+  background: #fffdfb;
   color: #49372f;
   padding: 4.75rem 0 5rem;
 }
@@ -3729,9 +3729,9 @@ a.contact-row:focus-visible .contact-row-action svg {
   grid-template-columns: 1fr;
   gap: 1rem;
   padding: 0.85rem;
-  border: 1px solid rgba(233, 140, 118, 0.16);
+  border: 1px solid #f0e6df;
   border-radius: 1.7rem;
-  background: #fdeee8;
+  background: #fffaf7;
 }
 
 .foundation-spark {
@@ -3751,7 +3751,7 @@ a.contact-row:focus-visible .contact-row-action svg {
 .foundation-side {
   padding: 1.35rem 1.15rem 1.15rem;
   border-radius: 1.25rem;
-  background: #fce4db;
+  background: #fdf3ee;
 }
 
 .foundation-company {
@@ -3788,7 +3788,7 @@ a.contact-row:focus-visible .contact-row-action svg {
   gap: 0.65rem;
   margin-top: 0.85rem;
   padding-top: 0.85rem;
-  border-top: 1px solid rgba(233, 140, 118, 0.28);
+  border-top: 1px solid #f0e6df;
 }
 
 .foundation-role-meta > svg {
@@ -3901,7 +3901,7 @@ a.contact-row:focus-visible .contact-row-action svg {
   gap: 0.55rem 0.7rem;
   margin-top: 1.05rem;
   padding-top: 0.9rem;
-  border-top: 1px solid rgba(233, 140, 118, 0.28);
+  border-top: 1px solid #f0e6df;
 }
 
 .foundation-skills p {
@@ -3934,29 +3934,29 @@ a.contact-row:focus-visible .contact-row-action svg {
 .foundation-skills li {
   padding: 0.28rem 0.65rem;
   border-radius: 999px;
-  background: #f6e4ef;
+  background: #f8eef4;
   color: #6d5a78;
   font-size: 0.82rem;
   font-weight: 600;
 }
 
 .foundation-skills li:nth-child(2) {
-  background: #fde4d8;
+  background: #fdeee6;
   color: #a15b4c;
 }
 
 .foundation-skills li:nth-child(3) {
-  background: #fff1d4;
+  background: #fff6e4;
   color: #8a6840;
 }
 
 .foundation-skills li:nth-child(4) {
-  background: #e5f3e4;
+  background: #eef6ed;
   color: #3f6d4a;
 }
 
 .foundation-skills li:nth-child(5) {
-  background: #efe4f8;
+  background: #f4eef8;
   color: #6d5684;
 }
 
@@ -3980,7 +3980,7 @@ a.contact-row:focus-visible .contact-row-action svg {
   gap: 0.85rem;
   align-items: center;
   padding: 1.05rem 0;
-  border-top: 1px solid rgba(233, 140, 118, 0.28);
+  border-top: 1px solid #f0e6df;
 }
 
 .foundation-qual:first-child {
@@ -4009,7 +4009,7 @@ a.contact-row:focus-visible .contact-row-action svg {
   margin: 0;
   padding: 0.18rem 0.55rem;
   border-radius: 999px;
-  background: #f8d9ce;
+  background: #fbe9e2;
   color: #c56b58;
   font-size: 0.78rem;
   font-weight: 650;
@@ -4021,7 +4021,7 @@ a.contact-row:focus-visible .contact-row-action svg {
 }
 
 .foundation-pill--done {
-  background: #e4f6e8;
+  background: #eaf8ee;
   color: #2f8a4e;
 }
 
