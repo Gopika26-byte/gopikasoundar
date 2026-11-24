@@ -436,35 +436,20 @@ h2[id] {
 }
 
 .hero-intro {
-  max-width: 40ch;
+  max-width: 100%;
   font-size: 0.875rem;
   line-height: 1.625;
 }
 
-@media (min-width: 640px) {
-  .hero-intro {
-    max-width: 30ch;
-    font-size: 1rem;
-    line-height: 1.625;
-  }
-}
-
-@media (min-width: 1280px) {
-  .hero-copy-column {
-    max-width: 42rem;
-  }
-
-  .hero-intro {
-    max-width: 42rem;
-    font-size: 1.375rem;
-    line-height: 1.45;
-  }
-}
-
-@media (min-width: 1600px) {
+@media (min-width: 768px) {
   .hero-copy-column,
   .hero-intro {
     max-width: 45.5rem;
+  }
+
+  .hero-intro {
+    font-size: 1.375rem;
+    line-height: 1.45;
   }
 }
 
