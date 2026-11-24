@@ -1,10 +1,17 @@
 import { ArrowUpRight, Lightbulb } from "lucide-react"
+import { useState, type MouseEvent, type ReactNode } from "react"
 import { useNavigate } from "react-router-dom"
-import type { MouseEvent, ReactNode } from "react"
-import { TeardownArt } from "../components/TeardownArt"
+import swiggyLogo from "../assets/swiggy-logo.svg"
+import zeptoLogo from "../assets/zepto-logo.svg"
 import { Reveal } from "../components/Reveal"
-import { PORTFOLIO_SCROLL_KEY, teardownPath, teardowns, type PortfolioNavState } from "../data/teardowns"
+import { TeardownArt } from "../components/TeardownArt"
+import { PORTFOLIO_SCROLL_KEY, teardownPath, teardowns, type PortfolioNavState, type Teardown } from "../data/teardowns"
 import { publicPath } from "../lib/publicPath"
+
+const teardownLogos: Record<string, { src: string; alt: string }> = {
+  "swiggy-instamart": { src: swiggyLogo, alt: "Swiggy" },
+  "zepto-support": { src: zeptoLogo, alt: "Zepto" },
+}
 
 export function ProductTeardowns() {
   return (
@@ -25,61 +32,91 @@ export function ProductTeardowns() {
         <div className="doc-grid">
           {teardowns.map((item, index) => (
             <Reveal key={item.slug} delay={index * 80} className="h-full">
-              <article className="group surface flex h-full flex-col overflow-hidden transition duration-200 hover:-translate-y-1 hover:shadow-raise">
-                <div className="relative aspect-[4/3] overflow-hidden">
-                  <div className="h-full w-full transition duration-300 group-hover:scale-[1.03]">
-                    <TeardownArt slug={item.slug} tone={item.tone} />
-                  </div>
-                </div>
-                <div className="flex flex-1 flex-col p-5">
-                  <p className="text-[0.7rem] font-semibold tracking-[0.16em] text-muted uppercase">
-                    {item.category}
-                  </p>
-                  <p className="mt-1 text-xs text-coral-deep">{item.product} · Independent analysis</p>
-                  {item.recognition ? (
-                    <div className="teardown-recognition">
-                      <p className="teardown-recognition-label">
-                        <Lightbulb size={14} strokeWidth={1.75} aria-hidden="true" />
-                        <span>{item.recognition.label}</span>
-                      </p>
-                      <p className="teardown-recognition-detail">{item.recognition.detail}</p>
-                    </div>
-                  ) : null}
-                  <h3 className="mt-3 font-serif text-[1.45rem] leading-tight text-ink">
-                    <TeardownLink
-                      to={item.href ?? teardownPath(item.slug)}
-                      external={Boolean(item.href)}
-                      className="rounded-sm"
-                    >
-                      {item.title}
-                    </TeardownLink>
-                  </h3>
-                  <p className="mt-3 text-sm leading-relaxed text-muted">{item.summary}</p>
-                  <ul className="mt-4 flex flex-wrap gap-2">
-                    {item.tags.map((tag) => (
-                      <li key={tag} className="rounded-full bg-ivory px-2.5 py-1 text-xs text-ink">
-                        {tag}
-                      </li>
-                    ))}
-                  </ul>
-                  <TeardownLink
-                    to={item.href ?? teardownPath(item.slug)}
-                    external={Boolean(item.href)}
-                    className="group mt-auto inline-flex items-center gap-3 pt-5 text-sm text-ink"
-                  >
-                    {item.cta}
-                    {item.href ? <span className="sr-only">, opens in a new tab</span> : null}
-                    <span className="grid h-10 w-10 place-items-center rounded-full border border-line bg-white transition duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5">
-                      <ArrowUpRight size={16} aria-hidden="true" />
-                    </span>
-                  </TeardownLink>
-                </div>
-              </article>
+              <TeardownCard item={item} />
             </Reveal>
           ))}
         </div>
       </div>
     </section>
+  )
+}
+
+function TeardownCard({ item }: { item: Teardown }) {
+  const [open, setOpen] = useState(false)
+  const logo = teardownLogos[item.slug]
+  const insightId = `${item.slug}-insight`
+  const destination = item.href ?? teardownPath(item.slug)
+
+  return (
+    <article className={`teardown-card teardown-card--${item.tone} surface flex h-full flex-col overflow-hidden`}>
+      <div className="teardown-visual relative aspect-[4/3] overflow-hidden">
+        <TeardownArt slug={item.slug} tone={item.tone} />
+        {logo ? <img className={`teardown-logo teardown-logo--${item.slug}`} src={logo.src} alt={logo.alt} /> : null}
+      </div>
+      <div className="flex flex-1 flex-col p-5">
+        <p className="text-[0.7rem] font-semibold tracking-[0.16em] text-muted uppercase">
+          {item.category}
+        </p>
+        <p className="mt-1 text-xs text-coral-deep">{item.product} · Independent analysis</p>
+        {item.recognition ? (
+          <div className="teardown-recognition">
+            <p className="teardown-recognition-label">
+              <Lightbulb size={14} strokeWidth={1.75} aria-hidden="true" />
+              <span>{item.recognition.label}</span>
+            </p>
+            <p className="teardown-recognition-detail">{item.recognition.detail}</p>
+          </div>
+        ) : null}
+        <h3 className="mt-3 font-serif text-[1.45rem] leading-tight text-ink">
+          <TeardownLink to={destination} external={Boolean(item.href)} className="rounded-sm">
+            {item.title}
+          </TeardownLink>
+        </h3>
+        <p className="mt-3 text-sm leading-relaxed text-muted">{item.summary}</p>
+        {item.insight ? (
+          <>
+            <button
+              type="button"
+              className="teardown-insight-toggle"
+              aria-expanded={open}
+              aria-controls={insightId}
+              onClick={() => setOpen((current) => !current)}
+            >
+              {open ? "Hide the insight" : "Discover the insight"}
+              <span aria-hidden="true">{open ? "↑" : "↓"}</span>
+            </button>
+            <div id={insightId} className={`teardown-insight${open ? " is-open" : ""}`}>
+              <div className="teardown-insight-inner">
+                <div className="teardown-insight-panel">
+                  <p>The product observation</p>
+                  <p>{item.insight.observation}</p>
+                  <p>The product opportunity</p>
+                  <p>{item.insight.opportunity}</p>
+                </div>
+              </div>
+            </div>
+          </>
+        ) : null}
+        <ul className="mt-4 flex flex-wrap gap-2">
+          {item.tags.map((tag) => (
+            <li key={tag} className="rounded-full bg-ivory px-2.5 py-1 text-xs text-ink">
+              {tag}
+            </li>
+          ))}
+        </ul>
+        <TeardownLink
+          to={destination}
+          external={Boolean(item.href)}
+          className="teardown-explore mt-auto inline-flex items-center gap-3 pt-5 text-sm text-ink"
+        >
+          {item.cta}
+          {item.href ? <span className="sr-only">, opens in a new tab</span> : null}
+          <span className="teardown-explore-arrow grid h-10 w-10 place-items-center rounded-full border border-line bg-white">
+            <ArrowUpRight size={16} aria-hidden="true" />
+          </span>
+        </TeardownLink>
+      </div>
+    </article>
   )
 }
 

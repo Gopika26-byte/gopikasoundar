@@ -123,6 +123,173 @@ h2[id] {
   color: #8c4a3a;
 }
 
+.teardown-card {
+  transition:
+    transform 240ms ease,
+    box-shadow 240ms ease,
+    border-color 240ms ease;
+}
+
+.teardown-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 16px 36px rgba(70, 48, 30, 0.08);
+}
+
+.teardown-card--peach:hover {
+  border-color: #f0c2b4;
+}
+
+.teardown-card--lavender:hover {
+  border-color: #d4c6de;
+}
+
+.teardown-logo {
+  position: absolute;
+  z-index: 1;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  pointer-events: none;
+}
+
+.teardown-logo--swiggy-instamart {
+  top: 20%;
+  left: 33%;
+  width: 31%;
+  max-width: 8.75rem;
+}
+
+.teardown-logo--zepto-support {
+  top: 10%;
+  right: 8%;
+  width: 28%;
+  max-width: 7.5rem;
+}
+
+.teardown-insight-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  align-self: flex-start;
+  margin-top: 0.85rem;
+  min-height: 2.75rem;
+  padding: 0.35rem 0;
+  border: 0;
+  background: transparent;
+  color: #8c4a3a;
+  font-size: 0.84rem;
+  font-weight: 650;
+  line-height: 1.3;
+  cursor: pointer;
+}
+
+.teardown-card--lavender .teardown-insight-toggle {
+  color: #5c4e68;
+}
+
+.teardown-insight-toggle:focus-visible {
+  outline: 2px solid currentColor;
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+.teardown-insight {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 260ms ease;
+}
+
+.teardown-insight.is-open {
+  grid-template-rows: 1fr;
+}
+
+.teardown-insight-inner {
+  overflow: hidden;
+}
+
+.teardown-insight-panel {
+  margin-top: 0.15rem;
+  padding: 0.75rem 0.8rem 0.7rem;
+  border: 1px solid #f3ddd4;
+  border-radius: 12px;
+  background: #fff8f5;
+}
+
+.teardown-card--lavender .teardown-insight-panel {
+  border-color: #e4dceb;
+  background: #fbf8fd;
+}
+
+.teardown-insight-panel p {
+  margin: 0;
+}
+
+.teardown-insight-panel p:nth-child(odd) {
+  font-size: 0.68rem;
+  font-weight: 650;
+  letter-spacing: 0.06em;
+  line-height: 1.4;
+  text-transform: uppercase;
+  color: #8c4a3a;
+}
+
+.teardown-card--lavender .teardown-insight-panel p:nth-child(odd) {
+  color: #5c4e68;
+}
+
+.teardown-insight-panel p:nth-child(even) {
+  margin-top: 0.28rem;
+  color: #756a65;
+  font-size: 0.84rem;
+  line-height: 1.5;
+}
+
+.teardown-insight-panel p:nth-child(3) {
+  margin-top: 0.7rem;
+}
+
+.teardown-explore {
+  transition: color 240ms ease;
+}
+
+.teardown-card--peach .teardown-explore:hover,
+.teardown-card--peach .teardown-explore:focus-visible {
+  color: #c45c4c;
+}
+
+.teardown-card--lavender .teardown-explore:hover,
+.teardown-card--lavender .teardown-explore:focus-visible {
+  color: #5c4e68;
+}
+
+.teardown-explore:focus-visible {
+  outline: 2px solid currentColor;
+  outline-offset: 3px;
+  border-radius: 6px;
+}
+
+.teardown-explore-arrow {
+  transition: transform 240ms ease;
+}
+
+.teardown-explore:hover .teardown-explore-arrow,
+.teardown-explore:focus-visible .teardown-explore-arrow {
+  transform: translateX(4px);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .teardown-card,
+  .teardown-insight,
+  .teardown-explore,
+  .teardown-explore-arrow {
+    transition: none;
+  }
+
+  .teardown-card:hover {
+    transform: none;
+  }
+}
+
 .btn {
   display: inline-flex;
   align-items: center;
