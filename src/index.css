@@ -442,12 +442,12 @@ h2[id] {
 }
 
 @media (min-width: 768px) {
-  .hero-copy-column,
-  .hero-intro {
+  .hero-copy-column {
     max-width: 45.5rem;
   }
 
   .hero-intro {
+    max-width: 36rem;
     font-size: 1.0625rem;
     line-height: 1.5;
   }
