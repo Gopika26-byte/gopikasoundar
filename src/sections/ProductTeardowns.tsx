@@ -2,11 +2,23 @@ import { ArrowUpRight, Lightbulb } from "lucide-react"
 import { useState, type MouseEvent, type ReactNode } from "react"
 import { useNavigate } from "react-router-dom"
 import swiggyLogo from "../assets/swiggy-logo.svg"
+import swiggyVisual from "../assets/swiggy-teardown.jpg"
 import zeptoLogo from "../assets/zepto-logo.svg"
+import zeptoVisual from "../assets/zepto-teardown.jpg"
 import { Reveal } from "../components/Reveal"
-import { TeardownArt } from "../components/TeardownArt"
 import { PORTFOLIO_SCROLL_KEY, teardownPath, teardowns, type PortfolioNavState, type Teardown } from "../data/teardowns"
 import { publicPath } from "../lib/publicPath"
+
+const teardownVisuals: Record<string, { src: string; alt: string }> = {
+  "swiggy-instamart": {
+    src: swiggyVisual,
+    alt: "Swiggy delivery partner beside a phone showing a 10 minute delivery ETA and route.",
+  },
+  "zepto-support": {
+    src: zeptoVisual,
+    alt: "Purple grocery bag beside a phone showing missing item, refund status, and complaint options.",
+  },
+}
 
 const teardownLogos: Record<string, { src: string; alt: string }> = {
   "swiggy-instamart": { src: swiggyLogo, alt: "Swiggy" },
@@ -44,13 +56,14 @@ export function ProductTeardowns() {
 function TeardownCard({ item }: { item: Teardown }) {
   const [open, setOpen] = useState(false)
   const logo = teardownLogos[item.slug]
+  const visual = teardownVisuals[item.slug]
   const insightId = `${item.slug}-insight`
   const destination = item.href ?? teardownPath(item.slug)
 
   return (
     <article className={`teardown-card teardown-card--${item.tone} surface flex h-full flex-col overflow-hidden`}>
       <div className="teardown-visual relative aspect-[4/3] overflow-hidden">
-        <TeardownArt slug={item.slug} tone={item.tone} />
+        {visual ? <img className="teardown-photo" src={visual.src} alt={visual.alt} /> : null}
         {logo ? <img className={`teardown-logo teardown-logo--${item.slug}`} src={logo.src} alt={logo.alt} /> : null}
       </div>
       <div className="flex flex-1 flex-col p-5">
