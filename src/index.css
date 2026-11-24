@@ -90,37 +90,36 @@ h2[id] {
   box-shadow: 0 10px 30px rgba(70, 48, 30, 0.045);
 }
 
-.teardown-recognition {
-  margin-top: 0.85rem;
-  padding: 0.7rem 0.75rem 0.65rem;
-  border: 1px solid color-mix(in srgb, var(--color-coral) 28%, #f3e6df);
-  border-radius: 12px;
-  background: color-mix(in srgb, var(--color-coral) 14%, #fff8f5);
-}
-
-.teardown-recognition-label {
+.teardown-kicker {
   display: flex;
-  align-items: flex-start;
-  gap: 0.4rem;
+  align-items: center;
+  gap: 0.9rem;
+}
+
+.teardown-kicker p {
   margin: 0;
-  font-size: 0.68rem;
-  font-weight: 600;
-  line-height: 1.45;
-  letter-spacing: 0.06em;
+  color: #716b65;
+  font-size: 0.72rem;
+  font-weight: 650;
+  letter-spacing: 0.18em;
   text-transform: uppercase;
-  color: var(--color-coral-deep);
+  white-space: nowrap;
 }
 
-.teardown-recognition-label svg {
-  flex-shrink: 0;
-  margin-top: 0.12rem;
+.teardown-kicker span {
+  flex: 1;
+  height: 2px;
+  border-radius: 999px;
+  background: #e98c76;
 }
 
-.teardown-recognition-detail {
-  margin: 0.35rem 0 0 1.25rem;
-  font-size: 0.78rem;
-  line-height: 1.4;
-  color: #8c4a3a;
+#teardowns-heading em {
+  font-style: italic;
+  padding: 0.02em 0.22em 0.08em;
+  border-radius: 0.38em;
+  background: #fde4d8;
+  box-decoration-break: clone;
+  -webkit-box-decoration-break: clone;
 }
 
 .teardown-card {
@@ -143,9 +142,36 @@ h2[id] {
   border-color: #d4c6de;
 }
 
-.teardown-photo {
+.teardown-visual {
+  position: relative;
+  display: block;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  border: 0;
+  background: #f7f1eb;
+  cursor: zoom-in;
+}
+
+.teardown-visual:focus-visible {
+  outline: 2px solid #e07a62;
+  outline-offset: -3px;
+}
+
+.teardown-scene {
   position: absolute;
   inset: 0;
+  display: block;
+  transition: transform 420ms ease;
+}
+
+.teardown-card:hover .teardown-scene {
+  transform: scale(1.03);
+}
+
+.teardown-photo {
   display: block;
   width: 100%;
   height: 100%;
@@ -153,121 +179,129 @@ h2[id] {
   object-position: center;
 }
 
-.teardown-logo {
+.teardown-brand {
   position: absolute;
   z-index: 1;
-  top: 0.7rem;
-  left: 0.7rem;
-  width: min(46%, 9.5rem);
   height: auto;
-  padding: 0.28rem 0.42rem;
-  border-radius: 0.65rem;
-  background: rgba(255, 252, 248, 0.92);
-  box-shadow: 0 6px 16px rgba(70, 48, 30, 0.08);
   object-fit: contain;
   pointer-events: none;
 }
 
-.teardown-logo--zepto-support {
-  width: min(34%, 7.25rem);
+.teardown-brand--swiggy-instamart {
+  top: 54%;
+  left: 9%;
+  width: 24%;
+  padding: 0.28rem 0.4rem;
+  border-radius: 0.55rem;
+  background: #fff;
+  box-shadow: 0 8px 18px rgba(70, 48, 30, 0.14);
 }
 
-#teardowns-heading em {
-  font-style: italic;
+.teardown-brand--zepto-support {
+  top: 69.6%;
+  left: 27.8%;
+  width: 14%;
+}
+
+.teardown-body {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  padding: 1.25rem 1.3rem 1.2rem;
+}
+
+.teardown-category {
+  margin: 0;
+  color: #8a8178;
+  font-size: 0.72rem;
+  font-weight: 650;
+  letter-spacing: 0.16em;
+  line-height: 1.4;
+  text-transform: uppercase;
+}
+
+.teardown-body h3 {
+  margin: 0.55rem 0 0;
+  color: #2c241f;
+  font-family: var(--font-serif);
+  font-size: clamp(1.45rem, 1.8vw, 1.7rem);
+  font-weight: 400;
+  line-height: 1.16;
+}
+
+.teardown-summary {
+  margin: 0.75rem 0 0;
+  color: #6f6762;
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+.teardown-banner {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin: 1rem 0 0;
+  padding: 0.72rem 0.85rem;
+  border-radius: 12px;
+  background: #fde8df;
+  color: #c45c4c;
+  font-size: 0.92rem;
+  font-weight: 650;
+  line-height: 1.35;
+}
+
+.teardown-banner svg {
+  flex: none;
 }
 
 .teardown-tags {
   display: flex;
   flex-wrap: wrap;
   gap: 0.45rem;
-  margin: 1rem 0 0;
+  margin: 0.95rem 0 0;
   padding: 0;
   list-style: none;
 }
 
 .teardown-tags li {
-  padding: 0.32rem 0.72rem;
-  border: 1px solid #f0cfc4;
+  padding: 0.38rem 0.78rem;
   border-radius: 999px;
-  color: #8a6a60;
-  font-size: 0.78rem;
+  background: #fdeee8;
+  color: #8a5a4c;
+  font-size: 0.84rem;
   line-height: 1.3;
 }
 
 .teardown-card--lavender .teardown-tags li {
-  border-color: #ddd3e8;
+  background: #f3eef8;
   color: #6d5a86;
-}
-
-.teardown-actions {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: space-between;
-  gap: 0.65rem;
-  margin-top: auto;
-  padding-top: 1.15rem;
-}
-
-.teardown-ack {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.4rem;
-  margin: 0;
-  padding: 0.42rem 0.75rem;
-  border: 1px solid #f3c7ba;
-  border-radius: 999px;
-  color: #d06a58;
-  font-size: 0.78rem;
-  font-weight: 600;
-  line-height: 1.3;
 }
 
 .teardown-explore {
   display: inline-flex;
   align-items: center;
-  gap: 0.35rem;
-  margin-left: auto;
-  padding: 0.5rem 0.9rem;
-  border: 1.5px solid #f0a090;
-  border-radius: 999px;
+  gap: 0.75rem;
+  align-self: flex-start;
+  margin-top: auto;
+  padding-top: 1.15rem;
   color: #e07a62;
-  font-size: 0.88rem;
-  font-weight: 600;
+  font-size: 0.95rem;
+  font-weight: 650;
   line-height: 1.2;
   text-decoration: none;
-  transition:
-    color 240ms ease,
-    background-color 240ms ease,
-    border-color 240ms ease;
 }
 
 .teardown-card--lavender .teardown-explore {
-  border-color: #c9b8dc;
   color: #6d5a86;
 }
 
-.teardown-card--peach .teardown-explore:hover,
-.teardown-card--peach .teardown-explore:focus-visible {
-  background: #fff4f0;
-  border-color: #e98c76;
-  color: #c45c4c;
-}
-
-.teardown-card--lavender .teardown-explore:hover,
-.teardown-card--lavender .teardown-explore:focus-visible {
-  background: #f8f4fb;
-  border-color: #b7a4cc;
-  color: #5c4e68;
-}
-
-.teardown-explore:focus-visible {
-  outline: 2px solid currentColor;
-  outline-offset: 3px;
-  border-radius: 6px;
-}
-
 .teardown-explore-arrow {
+  display: grid;
+  width: 2.45rem;
+  height: 2.45rem;
+  place-items: center;
+  border: 1.5px solid currentColor;
+  border-radius: 999px;
   transition: transform 240ms ease;
 }
 
@@ -276,14 +310,69 @@ h2[id] {
   transform: translateX(4px);
 }
 
+.teardown-explore:focus-visible,
+.teardown-lightbox-close:focus-visible {
+  outline: 2px solid currentColor;
+  outline-offset: 3px;
+}
+
+dialog.teardown-lightbox {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  max-width: none;
+  max-height: none;
+  margin: 0;
+  padding: 1.25rem;
+  border: 0;
+  background: transparent;
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+}
+
+dialog.teardown-lightbox::backdrop {
+  background: rgba(42, 30, 24, 0.72);
+}
+
+.teardown-lightbox-frame {
+  position: relative;
+  width: min(920px, 100%);
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  border-radius: 18px;
+  background: #fff;
+}
+
+.teardown-lightbox-close {
+  position: absolute;
+  z-index: 2;
+  top: 0.75rem;
+  right: 0.75rem;
+  display: grid;
+  width: 2.4rem;
+  height: 2.4rem;
+  place-items: center;
+  border: 0;
+  border-radius: 999px;
+  background: #fffdfb;
+  color: #2c241f;
+  cursor: pointer;
+  box-shadow: 0 8px 18px rgba(42, 30, 24, 0.16);
+}
+
 @media (prefers-reduced-motion: reduce) {
   .teardown-card,
-  .teardown-explore,
+  .teardown-scene,
   .teardown-explore-arrow {
     transition: none;
   }
 
-  .teardown-card:hover {
+  .teardown-card:hover,
+  .teardown-card:hover .teardown-scene,
+  .teardown-explore:hover .teardown-explore-arrow,
+  .teardown-explore:focus-visible .teardown-explore-arrow {
     transform: none;
   }
 }
