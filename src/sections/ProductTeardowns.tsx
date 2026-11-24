@@ -1,9 +1,7 @@
 import { ArrowUpRight, Award, X } from "lucide-react"
 import { useEffect, useRef, useState, type MouseEvent, type ReactNode } from "react"
 import { useNavigate } from "react-router-dom"
-import swiggyLogo from "../assets/swiggy-logo.svg"
 import swiggyVisual from "../assets/swiggy-teardown.jpg"
-import zeptoLogo from "../assets/zepto-logo.svg"
 import zeptoVisual from "../assets/zepto-teardown.jpg"
 import { Reveal } from "../components/Reveal"
 import { PORTFOLIO_SCROLL_KEY, teardownPath, teardowns, type PortfolioNavState, type Teardown } from "../data/teardowns"
@@ -12,17 +10,12 @@ import { publicPath } from "../lib/publicPath"
 const teardownVisuals: Record<string, { src: string; alt: string }> = {
   "swiggy-instamart": {
     src: swiggyVisual,
-    alt: "Swiggy delivery partner beside a phone showing an arrival in 10 minutes and the delivery route.",
+    alt: "Swiggy logo beside a delivery bag and a phone showing an arrival in 10 minutes.",
   },
   "zepto-support": {
     src: zeptoVisual,
-    alt: "Zepto grocery bag beside a phone listing missing item, wrong item, and quality issue support options.",
+    alt: "Zepto logo beside a grocery bag and a phone listing missing item, wrong item, and quality issue.",
   },
-}
-
-const teardownLogos: Record<string, { src: string; alt: string }> = {
-  "swiggy-instamart": { src: swiggyLogo, alt: "Swiggy" },
-  "zepto-support": { src: zeptoLogo, alt: "Zepto" },
 }
 
 type Preview = {
@@ -65,12 +58,10 @@ export function ProductTeardowns() {
   )
 }
 
-function TeardownScene({ slug, src, alt }: { slug: string; src: string; alt: string }) {
-  const logo = teardownLogos[slug]
+function TeardownScene({ src, alt }: { src: string; alt: string }) {
   return (
     <span className="teardown-scene">
-      <img className="teardown-photo" src={src} alt={alt} width={1152} height={864} />
-      {logo ? <img className={`teardown-brand teardown-brand--${slug}`} src={logo.src} alt="" /> : null}
+      <img className="teardown-photo" src={src} alt={alt} width={894} height={458} />
     </span>
   )
 }
@@ -88,7 +79,7 @@ function TeardownCard({ item, onPreview }: { item: Teardown; onPreview: (preview
           aria-label={`View larger image: ${visual.alt}`}
           onClick={() => onPreview({ slug: item.slug, src: visual.src, alt: visual.alt })}
         >
-          <TeardownScene slug={item.slug} src={visual.src} alt="" />
+          <TeardownScene src={visual.src} alt="" />
         </button>
       ) : null}
       <div className="teardown-body">
@@ -142,7 +133,7 @@ function TeardownLightbox({ preview, onClose }: { preview: Preview | null; onClo
     >
       {preview ? (
         <div className="teardown-lightbox-frame">
-          <TeardownScene slug={preview.slug} src={preview.src} alt={preview.alt} />
+          <TeardownScene src={preview.src} alt={preview.alt} />
           <button ref={closeRef} type="button" className="teardown-lightbox-close" onClick={onClose}>
             <span className="sr-only">Close image preview</span>
             <X size={18} aria-hidden="true" />
