@@ -179,17 +179,25 @@ export function ExperienceEducationSection() {
             <div className="foundation-main">
               <article className="foundation-qual">
                 <div>
-                  <h3>Bachelor's Degree (UG)</h3>
-                  <p className="foundation-pill">
-                    <CalendarIcon />
-                    2018 – 2021
-                  </p>
+                  <h3>Product Management with Generative & Agentic AI</h3>
+                  <div className="foundation-pills">
+                    <p className="foundation-pill">
+                      <CalendarIcon />
+                      Jan 2026 – Nov 2026
+                    </p>
+                    <p className="foundation-pill foundation-pill--done">
+                      <span aria-hidden="true">✓</span>
+                      Completed in November 2026
+                    </p>
+                  </div>
                   <p className="foundation-qual-copy">
-                    Built a strong foundation in computer science and core technology concepts.
+                    A hands-on, industry-focused program on product management with GenAI and Agentic AI.
                   </p>
                 </div>
-                <div className="foundation-brand foundation-brand--srm">
-                  <img src={srmLogo} alt="SRM Institute of Science and Technology" />
+                <div className="foundation-brand foundation-brand--stack">
+                  <img src={bitsomLogo} alt="BITSOM, BITS School of Management" />
+                  <p>Learning Partner</p>
+                  <img src={masaiLogo} alt="MASAI School" />
                 </div>
               </article>
               <article className="foundation-qual">
@@ -210,25 +218,17 @@ export function ExperienceEducationSection() {
               </article>
               <article className="foundation-qual">
                 <div>
-                  <h3>Product Management with Generative & Agentic AI</h3>
-                  <div className="foundation-pills">
-                    <p className="foundation-pill">
-                      <CalendarIcon />
-                      Jan 2026 – Nov 2026
-                    </p>
-                    <p className="foundation-pill foundation-pill--done">
-                      <span aria-hidden="true">✓</span>
-                      Completed in November 2026
-                    </p>
-                  </div>
+                  <h3>Bachelor's Degree (UG)</h3>
+                  <p className="foundation-pill">
+                    <CalendarIcon />
+                    2018 – 2021
+                  </p>
                   <p className="foundation-qual-copy">
-                    A hands-on, industry-focused program on product management with GenAI and Agentic AI.
+                    Built a strong foundation in computer science and core technology concepts.
                   </p>
                 </div>
-                <div className="foundation-brand foundation-brand--stack">
-                  <img src={bitsomLogo} alt="BITSOM, BITS School of Management" />
-                  <p>Learning Partner</p>
-                  <img src={masaiLogo} alt="MASAI School" />
+                <div className="foundation-brand foundation-brand--srm">
+                  <img src={srmLogo} alt="SRM Institute of Science and Technology" />
                 </div>
               </article>
             </div>
