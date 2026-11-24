@@ -34,6 +34,10 @@ export type Teardown = {
     label: string
     detail: string
   }
+  insight?: {
+    observation: string
+    opportunity: string
+  }
   intro: string
   disclaimer: string
   sections: TeardownSection[]
@@ -47,13 +51,19 @@ export const teardowns: Teardown[] = [
     title: "The 10-Minute Visibility Gap",
     summary:
       "What started as an everyday observation about delivery visibility became a public product conversation. My perspective received acknowledgement from a Swiggy product leader, opening up an interesting exploration of recipient uncertainty and ETA-first communication.",
-    tags: ["Product Discovery", "Product Strategy", "User Experience"],
+    tags: ["Delivery Visibility", "User Uncertainty", "ETA Communication"],
     tone: "peach",
     cta: "Explore Teardown",
     href: "https://app.notion.com/p/THE-10-MINUTE-VISIBILITY-GAP-40d160f99a8880aea212c35fc3ddfacb?source=copy_link",
     recognition: {
-      label: "A product observation that reached Swiggy's product team",
+      label: "Acknowledged by a Swiggy product leader",
       detail: "Publicly acknowledged by a Swiggy product leader.",
+    },
+    insight: {
+      observation:
+        "Delivery visibility is not just about tracking an order. It is also about reducing uncertainty for the person receiving it.",
+      opportunity:
+        "Explore clearer recipient communication and ETA-first updates to make delivery expectations more transparent.",
     },
     intro:
       "An independent product teardown of the difference between delivery visibility in Swiggy Food and Swiggy Instamart. It is not an official Swiggy assignment. A public response from a Swiggy product leader acknowledged the observation. That response is not evidence that Swiggy changed the product, and it is not evidence that Swiggy adopted the ETA-first direction explored here.",
@@ -123,11 +133,17 @@ export const teardowns: Teardown[] = [
     product: "Zepto",
     title: "A UX Teardown of Zepto's Customer Support & Complaint Resolution Experience",
     summary:
-      "A firsthand teardown backed by 40 customer reviews, uncovering friction in automated complaint assessment, resolution flexibility and refund visibility, with recommendations to make support clearer and more customer-centric.",
-    tags: ["Complaint Resolution", "Support Journey", "UX Audit"],
+      "A firsthand teardown backed by 40 customer reviews, uncovering friction in automated complaint assessment, resolution flexibility and refund visibility.",
+    tags: ["Support Discovery", "Complaint Resolution", "Resolution Flexibility"],
     tone: "lavender",
     cta: "Explore Teardown",
     href: "https://app.notion.com/p/A-UX-Teardown-of-Zepto-s-Customer-Support-Complaint-Resolution-Experience-40c160f99a8880af81b6d6d9a5adf3d0?source=copy_link",
+    insight: {
+      observation:
+        "Customers can experience friction when automated complaint assessment does not clearly explain the issue or the next steps available to them.",
+      opportunity:
+        "Explore clearer support discovery, transparent complaint assessment and more flexible resolution options.",
+    },
     intro:
       "An independent teardown of Zepto's customer support and complaint resolution experience. It draws on 40 publicly available customer reviews, a firsthand pass through the Zepto app, an actual complaint submission and resolution journey, and a competitive look at Blinkit and Swiggy Instamart. The proposed improvements are recommendations, not changes Zepto is reported to have implemented, and the interface concepts are not existing Zepto screens.",
     disclaimer:
