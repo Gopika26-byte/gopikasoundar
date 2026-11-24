@@ -272,20 +272,13 @@ h2[id] {
   gap: 0.7rem;
   align-self: flex-start;
   margin-top: auto;
-  padding: 0.42rem 0.48rem 0.42rem 0.95rem;
-  border: 1.5px solid #f0a090;
-  border-radius: 999px;
+  padding: 0.42rem 0 0;
+  border: 0;
   color: #e07a62;
   font-size: 0.95rem;
   font-weight: 650;
   line-height: 1.2;
   text-decoration: none;
-}
-
-.teardown-card--lavender .teardown-explore {
-  padding: 0.42rem 0;
-  border-color: transparent;
-  color: #e07a62;
 }
 
 .teardown-explore-arrow {
