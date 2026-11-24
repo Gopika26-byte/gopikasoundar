@@ -102,13 +102,12 @@ export const about = {
   kicker: "My journey",
   headingBefore: "From Troubleshooting Problems",
   headingAfter: "to Building Better Products.",
-  lead: "Five years close to real-world product problems taught me to look beyond the fix — and ask what could prevent the problem in the first place.",
   milestones: [
     {
       step: "01",
       eyebrow: "Where I started",
       title: "Seeing products up close.",
-      body: "At Cognizant, I work as a Technical Support Engineer across 100+ applications in the agriculture domain. Investigating recurring issues and collaborating with development teams gave me a ground-level understanding of user pain points.",
+      body: "At Cognizant, I support 100+ applications in the agriculture domain, resolving issues and understanding real user pain points.",
       tone: "peach" as const,
     },
     {
@@ -116,26 +115,20 @@ export const about = {
       eyebrow: "The shift",
       title: "Curiosity beyond the fix.",
       body: "I became more interested in why problems happened — and how better product decisions could prevent them.",
-      quote: "What if we could prevent the problem, not just resolve it?",
       tone: "cream" as const,
     },
     {
       step: "03",
-      eyebrow: "What I'm building",
+      eyebrow: "Building the foundation",
       title: "Learning by doing.",
-      body: "I built my product foundation through BITSOM–Masai learning in Product Management, Generative AI and Agentic AI, applying it through independent case studies, user research and product projects.",
+      body: "I built my product foundation through BITSOM–Masai learning in Product Management, Generative AI and Agentic AI, applying it through case studies, user research and product projects.",
       tone: "lavender" as const,
     },
   ],
-  education: {
-    label: "Graduated in",
-    qualification: "Product Management with Generative & Agentic AI",
-    fromLabel: "From",
-    institution: "BITSOM (BITS Pilani)",
-  },
-  closing:
-    "My perspective has evolved: from resolving what went wrong to discovering what could be built better.",
-  closingEmphasis: "built better",
+  qualification: ["Product Management", "with Generative &", "Agentic AI"],
+  goalHeading: "Looking for Product Manager Roles.",
+  goalBody:
+    "Ready to bring my technical experience, customer empathy and product mindset to a Product Manager role.",
 }
 
 export type Tone = "peach" | "sage" | "lavender" | "sunset"
