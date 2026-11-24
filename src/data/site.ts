@@ -99,40 +99,43 @@ export const mediumArticles = [
 ]
 
 export const about = {
-  heading: "From Troubleshooting Problems to Building Better Products",
-  paragraphs: [
+  kicker: "My journey",
+  headingBefore: "From Troubleshooting Problems",
+  headingAfter: "to Building Better Products.",
+  lead: "Five years close to real-world product problems taught me to look beyond the fix — and ask what could prevent the problem in the first place.",
+  milestones: [
     {
-      text: "My journey began as a Technical Support Engineer at Cognizant, working across 100+ applications in the agriculture domain. Investigating recurring issues and collaborating with development teams gave me a firsthand understanding of user pain points and how products perform in real-world situations.",
+      step: "01",
+      eyebrow: "Where I started",
+      title: "Seeing products up close.",
+      body: "At Cognizant, I work as a Technical Support Engineer across 100+ applications in the agriculture domain. Investigating recurring issues and collaborating with development teams gave me a ground-level understanding of user pain points.",
+      tone: "peach" as const,
     },
     {
-      text: "Over time, I became more curious about why problems existed and how products could prevent them, rather than simply resolving them.",
-      emphasis: "why problems existed and how products could prevent them",
+      step: "02",
+      eyebrow: "The shift",
+      title: "Curiosity beyond the fix.",
+      body: "I became more interested in why problems happened — and how better product decisions could prevent them.",
+      quote: "What if we could prevent the problem, not just resolve it?",
+      tone: "cream" as const,
     },
     {
-      text: "That curiosity led me to Product Management.",
-      variant: "turn" as const,
-    },
-    {
-      text: "I began building that mindset through product management, Generative AI and Agentic AI learning at BITSOM–Masai, alongside hands-on projects, product teardowns, user research and independent case studies.",
-    },
-    {
-      text: "Today, I'm bringing my technical experience and problem-solving mindset into product thinking—focusing on what can be built better and why it matters.",
-    },
-    {
-      text: "My perspective has evolved: from resolving what went wrong to discovering what could be built better.",
-      variant: "closing" as const,
+      step: "03",
+      eyebrow: "What I'm building",
+      title: "Learning by doing.",
+      body: "I built my product foundation through BITSOM–Masai learning in Product Management, Generative AI and Agentic AI, applying it through independent case studies, user research and product projects.",
+      tone: "lavender" as const,
     },
   ],
-  name: "Gopika",
-  designationFrom: "Technical Support Engineer",
-  designationInto: "Transitioning into",
-  designationTo: "Product Management",
   education: {
-    label: "Graduated",
+    label: "Graduated in",
     qualification: "Product Management with Generative & Agentic AI",
     fromLabel: "From",
     institution: "BITSOM (BITS Pilani)",
   },
+  closing:
+    "My perspective has evolved: from resolving what went wrong to discovering what could be built better.",
+  closingEmphasis: "built better",
 }
 
 export type Tone = "peach" | "sage" | "lavender" | "sunset"
