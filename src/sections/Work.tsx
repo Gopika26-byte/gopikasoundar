@@ -1,13 +1,12 @@
 import { Reveal } from "../components/Reveal"
 import { CaseStudyShowcase } from "../components/CaseStudyShowcase"
+import { CatchMyVibeCard } from "../components/CatchMyVibeCard"
 import { MyntraLoopCard } from "../components/MyntraLoopCard"
 import { ViewProjectCursor } from "../components/ViewProjectCursor"
-import catchMyVibeVisual from "../assets/catchmyvibe-banner.jpg"
 import trustedCircleVisual from "../assets/trusted-circle-savings.jpg"
 import { caseStudies } from "../data/site"
 
 const caseStudyVisuals: Record<string, string> = {
-  "creator-ecosystem": catchMyVibeVisual,
   "team-collaboration": trustedCircleVisual,
 }
 
@@ -27,6 +26,8 @@ export function Work() {
             <Reveal key={study.slug} delay={index * 90}>
               {study.slug === "myntra-loop" ? (
                 <MyntraLoopCard />
+              ) : study.slug === "creator-ecosystem" ? (
+                <CatchMyVibeCard />
               ) : (
                 <CaseStudyShowcase
                   category={study.category}
