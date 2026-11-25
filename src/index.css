@@ -2219,6 +2219,16 @@ dialog.teardown-lightbox::backdrop {
   text-align: left;
 }
 
+.farewell-headline-line {
+  display: block;
+}
+
+@media (min-width: 900px) {
+  .farewell-headline-line {
+    white-space: nowrap;
+  }
+}
+
 @media (max-width: 767.98px) {
   .farewell {
     display: flex;
