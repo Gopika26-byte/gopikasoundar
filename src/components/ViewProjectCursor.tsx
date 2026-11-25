@@ -38,7 +38,9 @@ export function ViewProjectCursor({ target, label = "View project" }: ViewProjec
     }
 
     const isOverTarget = (node: EventTarget | null) =>
-      node instanceof Element && node.closest(target) !== null
+      node instanceof Element &&
+      node.closest(target) !== null &&
+      node.closest("[data-no-view-cursor]") === null
 
     const onPointerMove = (event: PointerEvent) => {
       if (event.pointerType !== "mouse") {
