@@ -1,6 +1,6 @@
 import { useEffect } from "react"
 import { Link, useParams } from "react-router-dom"
-import { CatchMyVibeOverview } from "../components/CatchMyVibeOverview"
+import { CatchMyVibeCaseStudy } from "../components/catchmyvibe/CatchMyVibeCaseStudy"
 import { CaseStudyNarrative } from "../components/CaseStudyNarrative"
 import { StudyArt } from "../components/StudyArt"
 import myntraLoopVisual from "../assets/myntra-loop.jpg"
@@ -26,7 +26,7 @@ export function CaseStudyPage() {
   }
 
   if (study.slug === "creator-ecosystem") {
-    return <CatchMyVibeOverview />
+    return <CatchMyVibeCaseStudy />
   }
 
   if (study.narrative) {
