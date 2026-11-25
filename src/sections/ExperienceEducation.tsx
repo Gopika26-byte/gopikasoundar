@@ -1,5 +1,3 @@
-import { ChevronDown } from "lucide-react"
-import { useState } from "react"
 import { Reveal } from "../components/Reveal"
 import annaLogo from "../assets/anna-university.png"
 import bitsomLogo from "../assets/bitsom.jpg"
@@ -81,93 +79,6 @@ function StudyScene() {
       <path d="M140 46c8 10 6 20-2 24" fill="none" stroke="#EFC56D" strokeWidth="1.8" strokeLinecap="round" />
       <circle cx="136" cy="72" r="2.4" fill="#EFC56D" />
     </svg>
-  )
-}
-
-const qualifications = [
-  {
-    id: "bitsom",
-    title: "Product Management with Generative & Agentic AI",
-    dates: "Jan 2026 – Nov 2026",
-    status: "Completed in November 2026",
-    copy: "A hands-on, industry-focused program on product management with GenAI and Agentic AI.",
-  },
-  {
-    id: "anna",
-    title: "Master of Computer Science (PG)",
-    dates: "2022 – 2024",
-    copy: "Deepened my technical expertise and problem-solving skills with a focus on real-world applications.",
-  },
-  {
-    id: "srm",
-    title: "Bachelor's Degree (UG)",
-    dates: "2018 – 2021",
-    copy: "Built a strong foundation in computer science and core technology concepts.",
-  },
-] as const
-
-function EducationQualifications() {
-  const [openId, setOpenId] = useState<string | null>(null)
-
-  return (
-    <div className="foundation-main">
-      {qualifications.map((item) => {
-        const open = openId === item.id
-        const panelId = `education-${item.id}`
-        return (
-          <article key={item.id} className={`foundation-qual${open ? " is-open" : ""}`}>
-            <h3 className="foundation-qual-heading">
-              <button
-                type="button"
-                className="foundation-qual-toggle"
-                aria-expanded={open}
-                aria-controls={panelId}
-                onClick={() => setOpenId((current) => (current === item.id ? null : item.id))}
-              >
-                <span className="foundation-qual-label">
-                  <span className="foundation-qual-title">{item.title}</span>
-                  <span className="foundation-pills">
-                    <span className="foundation-pill">
-                      <CalendarIcon />
-                      {item.dates}
-                    </span>
-                    {"status" in item ? (
-                      <span className="foundation-pill foundation-pill--done">
-                        <span aria-hidden="true">✓</span>
-                        {item.status}
-                      </span>
-                    ) : null}
-                  </span>
-                </span>
-                <ChevronDown className="foundation-qual-chevron" size={18} strokeWidth={1.75} aria-hidden="true" />
-              </button>
-            </h3>
-            {item.id === "bitsom" ? (
-              <div className="foundation-brand foundation-brand--stack">
-                <img src={bitsomLogo} alt="BITSOM, BITS School of Management" />
-                <p>Learning Partner</p>
-                <img src={masaiLogo} alt="MASAI School" />
-              </div>
-            ) : null}
-            {item.id === "anna" ? (
-              <div className="foundation-brand">
-                <img src={annaLogo} alt="Anna University" />
-              </div>
-            ) : null}
-            {item.id === "srm" ? (
-              <div className="foundation-brand foundation-brand--srm">
-                <img src={srmLogo} alt="SRM Institute of Science and Technology" />
-              </div>
-            ) : null}
-            <div id={panelId} className="foundation-qual-panel" role="region" aria-hidden={!open}>
-              <div className="foundation-qual-panel-inner">
-                <p className="foundation-qual-copy">{item.copy}</p>
-              </div>
-            </div>
-          </article>
-        )
-      })}
-    </div>
   )
 }
 
@@ -265,7 +176,62 @@ export function ExperienceEducationSection() {
                 <StudyScene />
               </div>
             </aside>
-            <EducationQualifications />
+            <div className="foundation-main">
+              <article className="foundation-qual">
+                <div>
+                  <h3>Product Management with Generative & Agentic AI</h3>
+                  <div className="foundation-pills">
+                    <p className="foundation-pill">
+                      <CalendarIcon />
+                      Jan 2026 – Nov 2026
+                    </p>
+                    <p className="foundation-pill foundation-pill--done">
+                      <span aria-hidden="true">✓</span>
+                      Completed in November 2026
+                    </p>
+                  </div>
+                  <p className="foundation-qual-copy">
+                    A hands-on, industry-focused program on product management with GenAI and Agentic AI.
+                  </p>
+                </div>
+                <div className="foundation-brand foundation-brand--stack">
+                  <img src={bitsomLogo} alt="BITSOM, BITS School of Management" />
+                  <p>Learning Partner</p>
+                  <img src={masaiLogo} alt="MASAI School" />
+                </div>
+              </article>
+              <article className="foundation-qual">
+                <div>
+                  <h3>Master of Computer Science (PG)</h3>
+                  <p className="foundation-pill">
+                    <CalendarIcon />
+                    2022 – 2024
+                  </p>
+                  <p className="foundation-qual-copy">
+                    Deepened my technical expertise and problem-solving skills with a focus on real-world
+                    applications.
+                  </p>
+                </div>
+                <div className="foundation-brand">
+                  <img src={annaLogo} alt="Anna University" />
+                </div>
+              </article>
+              <article className="foundation-qual">
+                <div>
+                  <h3>Bachelor's Degree (UG)</h3>
+                  <p className="foundation-pill">
+                    <CalendarIcon />
+                    2018 – 2021
+                  </p>
+                  <p className="foundation-qual-copy">
+                    Built a strong foundation in computer science and core technology concepts.
+                  </p>
+                </div>
+                <div className="foundation-brand foundation-brand--srm">
+                  <img src={srmLogo} alt="SRM Institute of Science and Technology" />
+                </div>
+              </article>
+            </div>
           </div>
         </div>
       </div>
