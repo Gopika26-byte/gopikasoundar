@@ -1832,6 +1832,25 @@ dialog.teardown-lightbox::backdrop {
   }
 }
 
+.case-showcase--banner {
+  display: block;
+  padding: 0;
+  background: #fff9f4;
+}
+
+.case-showcase--banner img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+@media (min-width: 760px) {
+  .case-showcase--banner {
+    display: block;
+    grid-template-columns: none;
+  }
+}
+
 .prd-doc {
   --prd-rx: 0deg;
   --prd-ry: 0deg;
