@@ -197,13 +197,9 @@ function BlockView({ block }: { block: CaseBlock }) {
       return (
         <ol className="case-flow">
           {block.items.map((item, index) => (
-            <li key={item} className="flex items-center gap-2">
-              <span className="rounded-full bg-ivory px-3 py-1.5 text-sm text-ink">{item}</span>
-              {index < block.items.length - 1 ? (
-                <span aria-hidden="true" className="text-muted">
-                  →
-                </span>
-              ) : null}
+            <li key={item}>
+              <span>{String(index + 1).padStart(2, "0")}</span>
+              <p>{item}</p>
             </li>
           ))}
         </ol>
