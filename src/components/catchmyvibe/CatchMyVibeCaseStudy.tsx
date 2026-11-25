@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react"
 import { Link } from "react-router-dom"
 import phone from "../../assets/catchmyvibe-phone.png"
+import "./caseStudy.css"
 import {
   agentGroups,
   audiences,
@@ -213,6 +214,9 @@ export function CatchMyVibeCaseStudy() {
             <div className="cmv-research">
               {interviews.map((person) => (
                 <article key={person.name}>
+                  <span className="cmv-avatar" aria-hidden="true">
+                    {person.name.slice(0, 1)}
+                  </span>
                   <p className="cmv-context">{person.context}</p>
                   <h3>
                     {person.name} <span>{person.age}</span>
