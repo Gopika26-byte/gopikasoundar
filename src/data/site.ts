@@ -270,53 +270,50 @@ export const caseStudies: CaseStudy[] = [
   },
   {
     slug: "team-collaboration",
-    category: "B2B platform",
+    category: "Product discovery",
     title: "A Product Discovery Case Study on Trusted-Circle Group Savings",
     summary:
-      "Show a team what is blocked, who owns it, and what can wait, without another status meeting.",
-    tags: ["Execution", "Strategy", "Analytics"],
-    tone: "sage",
+      "Exploring a group-savings opportunity for Slice to enable trusted, transparent and hassle-free saving circles.",
+    tags: ["User Research", "Problem Validation", "Product Strategy"],
+    tone: "peach",
+    status: "Independent exercise",
     problem:
-      "Status lives in chats, decks, and memory. Leads add meetings to recover a picture the tool should already hold.",
+      "The opening question was whether removing host commission and auction discounts would change behaviour enough to give people a reason to choose Slice.",
     context:
-      "Practice work on a common B2B collaboration problem. It is not a case study of a company I worked for, and it claims no usage or revenue result.",
+      "An independent product discovery exercise about a possible Slice group-savings feature. It was not an official Slice initiative, and it did not become a launched product.",
     approach: [
       {
-        title: "Find the question the meeting is standing in for",
-        body: "Usually it is “what changed, what is stuck, and what do you need from me?” The product should answer that before anyone books time.",
+        title: "Ask people who already use chit arrangements",
+        body: "An exploratory survey of 30 people with experience in informal chit arrangements among known groups.",
       },
       {
-        title: "Attach status to the work, not to a person",
-        body: "A weekly round-robin update punishes quiet progress. A work item with an owner, a blocker, and a next step is easier to trust.",
+        title: "Read public reviews of organised chit funds",
+        body: "Public reviews of Shriram Chits and Kapil Chits, treated as reported experiences rather than verified facts.",
       },
       {
-        title: "Protect focus",
-        body: "Visibility should not become another inbox. Digest the exceptions. Leave the rest alone.",
+        title: "Ask people who have never joined a group",
+        body: "A second exploratory survey of 50+ people, plus six to seven personal conversations.",
       },
     ],
     decisions: [
-      "One shared board with a plain blocker field, not a new status taxonomy.",
-      "A Monday digest of blocked and newly unblocked work.",
-      "No requirement to write a narrative update if the work item is current.",
+      "The no-bidding, commission-free differentiator was not sufficiently validated.",
+      "The proposed feature did not, by itself, address reliability, trust, transparency or accountability.",
+      "Pause the original feature. Do not proceed to development at this stage.",
     ],
     measure: [
       {
-        metric: "Recurring status meetings cancelled or shortened",
-        why: "The point is time returned, not another chart to present.",
+        metric: "No adoption result",
+        why: "Stated interest was not treated as proof that people would join or contribute real money.",
       },
       {
-        metric: "Share of active work with an owner and next step",
-        why: "A board that is mostly blank is not visibility.",
-      },
-      {
-        metric: "Age of open blockers",
-        why: "Seeing a blocker only helps if it gets resolved sooner.",
+        metric: "No business outcome",
+        why: "Possible effects on acquisition, retention and engagement stayed hypotheses.",
       },
     ],
     assumptions: [
-      "Teams avoid the current tool because updating it feels like extra work.",
-      "Leads will give up a meeting if the digest is reliable for two weeks.",
-      "A smaller set of fields will be kept fresher than a comprehensive one.",
+      "Host commission and auction discounts might be important enough problems to change behaviour.",
+      "Removing them might give people a reason to choose Slice.",
+      "Those assumptions needed research before any feature was designed.",
     ],
   },
 ]

@@ -1,6 +1,7 @@
 import { useEffect } from "react"
 import { Link, useParams } from "react-router-dom"
 import { CatchMyVibeCaseStudy } from "../components/catchmyvibe/CatchMyVibeCaseStudy"
+import { TrustedCircleCaseStudy } from "../components/trustedcircle/TrustedCircleCaseStudy"
 import { CaseStudyNarrative } from "../components/CaseStudyNarrative"
 import { StudyArt } from "../components/StudyArt"
 import { caseStudies } from "../data/site"
@@ -26,6 +27,10 @@ export function CaseStudyPage() {
 
   if (study.slug === "creator-ecosystem") {
     return <CatchMyVibeCaseStudy />
+  }
+
+  if (study.slug === "team-collaboration") {
+    return <TrustedCircleCaseStudy />
   }
 
   if (study.narrative) {

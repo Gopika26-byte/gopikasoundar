@@ -2,13 +2,11 @@ import { Reveal } from "../components/Reveal"
 import { CaseStudyShowcase } from "../components/CaseStudyShowcase"
 import { CatchMyVibeCard } from "../components/CatchMyVibeCard"
 import { MyntraLoopCard } from "../components/MyntraLoopCard"
+import { TrustedCircleCard } from "../components/TrustedCircleCard"
 import { ViewProjectCursor } from "../components/ViewProjectCursor"
-import trustedCircleVisual from "../assets/trusted-circle-savings.jpg"
 import { caseStudies } from "../data/site"
 
-const caseStudyVisuals: Record<string, string> = {
-  "team-collaboration": trustedCircleVisual,
-}
+const caseStudyVisuals: Record<string, string> = {}
 
 export function Work() {
   return (
@@ -28,6 +26,8 @@ export function Work() {
                 <MyntraLoopCard />
               ) : study.slug === "creator-ecosystem" ? (
                 <CatchMyVibeCard />
+              ) : study.slug === "team-collaboration" ? (
+                <TrustedCircleCard />
               ) : (
                 <CaseStudyShowcase
                   category={study.category}
