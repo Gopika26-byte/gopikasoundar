@@ -3,7 +3,6 @@ import { Link, useParams } from "react-router-dom"
 import { CatchMyVibeCaseStudy } from "../components/catchmyvibe/CatchMyVibeCaseStudy"
 import { CaseStudyNarrative } from "../components/CaseStudyNarrative"
 import { StudyArt } from "../components/StudyArt"
-import myntraLoopVisual from "../assets/myntra-loop.jpg"
 import { caseStudies } from "../data/site"
 
 export function CaseStudyPage() {
@@ -30,7 +29,7 @@ export function CaseStudyPage() {
   }
 
   if (study.narrative) {
-    return <CaseStudyNarrative narrative={study.narrative} heroSrc={myntraLoopVisual} />
+    return <CaseStudyNarrative narrative={study.narrative} />
   }
 
   return (

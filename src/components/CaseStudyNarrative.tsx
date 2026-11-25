@@ -12,13 +12,7 @@ function scrollToCaseSection(event: MouseEvent<HTMLAnchorElement>, id: string) {
   window.history.replaceState(null, "", `${window.location.pathname}${window.location.search}#${id}`)
 }
 
-export function CaseStudyNarrative({
-  narrative,
-  heroSrc,
-}: {
-  narrative: CaseNarrative
-  heroSrc: string
-}) {
+export function CaseStudyNarrative({ narrative }: { narrative: CaseNarrative }) {
   return (
     <main className="loop-study">
       <div className="loop-bar">
@@ -53,14 +47,6 @@ export function CaseStudyNarrative({
           alt="Myntra Loop phone showing folded garments, Sell to Myntra, Earn Loop Points, and Shop Sustainably."
         />
       </header>
-      <figure className="loop-banner">
-        <img
-          src={heroSrc}
-          alt="Myntra Loop concept banner showing a phone with a circular fashion experience beside folded garments."
-          width={1024}
-          height={960}
-        />
-      </figure>
 
       <div className="loop-layout">
         <nav className="case-toc" aria-label="Case study contents">
