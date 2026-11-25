@@ -1,5 +1,5 @@
 import { ChevronDown, File, FileText, Layers, Menu, X } from "lucide-react"
-import { useEffect, useId, useRef, useState, type KeyboardEvent } from "react"
+import { useEffect, useId, useRef, useState, type KeyboardEvent as ReactKeyboardEvent } from "react"
 import { useLocation } from "react-router-dom"
 import { navItems, navSpy, profile, workNavItems } from "../data/site"
 import { ContactMenu } from "./contact/ContactMenu"
@@ -35,7 +35,7 @@ export function Nav() {
     if (location.pathname !== "/") return
     const updateActive = () => {
       const line = window.scrollY + (document.querySelector("nav")?.getBoundingClientRect().bottom ?? 96) + 24
-      let current = navSpy[0]
+      let current: (typeof navSpy)[number] = navSpy[0]
       for (const item of navSpy) {
         const node = document.getElementById(item.section)
         if (!node) continue
@@ -56,7 +56,7 @@ export function Nav() {
 
   useEffect(() => {
     if (!open) return
-    const onKey = (event: KeyboardEvent) => {
+    const onKey = (event: globalThis.KeyboardEvent) => {
       if (event.key === "Escape") setOpen(false)
     }
     window.addEventListener("keydown", onKey)
@@ -204,7 +204,7 @@ function WorkMenu({
     item.focus()
   }, [open])
 
-  const onMenuKey = (event: KeyboardEvent<HTMLDivElement>) => {
+  const onMenuKey = (event: ReactKeyboardEvent<HTMLDivElement>) => {
     const items = [...event.currentTarget.querySelectorAll<HTMLAnchorElement>('[role="menuitem"]')]
     const index = items.indexOf(document.activeElement as HTMLAnchorElement)
     if (index < 0) return
@@ -229,7 +229,7 @@ function WorkMenu({
     ;(direction === "last" ? items[items.length - 1] : items[0]).focus()
   }
 
-  const onButtonKey = (event: KeyboardEvent<HTMLButtonElement>) => {
+  const onButtonKey = (event: ReactKeyboardEvent<HTMLButtonElement>) => {
     if (event.key !== "ArrowDown" && event.key !== "ArrowUp") return
     event.preventDefault()
     const direction = event.key === "ArrowDown" ? "first" : "last"
