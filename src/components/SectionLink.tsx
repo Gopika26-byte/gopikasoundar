@@ -7,6 +7,7 @@ type Props = {
   className?: string
   children: ReactNode
   onNavigate?: () => void
+  role?: string
 }
 
 export function scrollToSection(id: string) {
@@ -20,7 +21,7 @@ export function scrollToSection(id: string) {
   window.history.replaceState(null, "", `#${id}`)
 }
 
-export function SectionLink({ id, className, children, onNavigate }: Props) {
+export function SectionLink({ id, className, children, onNavigate, role }: Props) {
   const location = useLocation()
   const navigate = useNavigate()
 
@@ -28,6 +29,7 @@ export function SectionLink({ id, className, children, onNavigate }: Props) {
     <a
       href={publicPath(`/#${id}`)}
       className={className}
+      role={role}
       onClick={(event) => {
         event.preventDefault()
         onNavigate?.()

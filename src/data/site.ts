@@ -18,13 +18,26 @@ export const profile = {
     "Open to conversations about B2B SaaS product roles, and to thoughtful collaborations.",
 }
 
+export const workNavItems = [
+  { id: "work-start", label: "Case Study", section: "work" },
+  { id: "documentation-start", label: "PRD", section: "documentation" },
+  { id: "teardowns-start", label: "Product Teardowns", section: "teardowns" },
+] as const
+
 export const navItems = [
   { id: "home", label: "Home", section: "home" },
-  { id: "about-heading", label: "About Me", section: "about" },
-  { id: "work-start", label: "Featured Work", section: "work" },
-  { id: "documentation-start", label: "PRDs", section: "documentation" },
-  { id: "teardowns-start", label: "Product Teardowns", section: "teardowns" },
+  { id: "about-heading", label: "About", section: "about" },
   { id: "experience-start", label: "Experience", section: "experience" },
+] as const
+
+/** Sections walked in page order. Work's three sections share one highlight. */
+export const navSpy = [
+  { section: "home", highlight: "home" },
+  { section: "about", highlight: "about-heading" },
+  { section: "work", highlight: "work" },
+  { section: "documentation", highlight: "work" },
+  { section: "teardowns", highlight: "work" },
+  { section: "experience", highlight: "experience-start" },
 ] as const
 
 export const hero = {
