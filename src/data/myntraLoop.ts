@@ -1423,56 +1423,36 @@ export const myntraLoopNarrative: CaseNarrative = {
       number: "17",
       label: "Closing Vision",
       heading: "Fashion Shouldn't End With the First Purchase.",
+      emphasis: true,
       blocks: [
         {
           type: "p",
-          text: "Myntra Loop explores an opportunity to transform unused garments into renewed customer and business value.",
+          text: "Myntra Loop is a managed way for clothes a customer no longer wears to find a new owner.",
         },
         {
-          type: "p",
-          text: "By allowing customers to recover value from eligible garments and making those garments accessible to new owners, Myntra can explore a more circular approach to fashion consumption.",
-        },
-        {
-          type: "p",
-          text: "The long-term vision is to create a managed resale ecosystem where customers can participate in both sides of the fashion lifecycle: selling what they no longer wear and discovering something new to them.",
-        },
-        {
-          type: "formula",
-          text: "Buy on Myntra. Wear it. Pass it back. Give fashion another life.",
-        },
-        { type: "h3", text: "About this case study" },
-        {
-          type: "p",
-          text: "Project: Myntra Loop — Turning Pre-Loved Fashion into Future Loyalty. Type: Independent Product Strategy & Management Case Study.",
-        },
-        { type: "h3", text: "Research conducted" },
-        {
-          type: "list",
+          type: "columns",
           items: [
-            "Exploratory survey: 100 respondents.",
-            "Customer interviews: 10 participants.",
-            "Industry stakeholder interviews: 2 operators.",
-          ],
-        },
-        { type: "h3", text: "Key product deliverables" },
-        {
-          type: "list",
-          items: [
-            "Problem discovery and research synthesis.",
-            "Customer segmentation and personas.",
-            "Product strategy and operating model selection.",
-            "Category prioritisation.",
-            "Economics-first valuation framework.",
-            "Seller and buyer user journeys.",
-            "MVP scope and product requirements.",
-            "Unit economics and business metrics.",
-            "Experimentation and validation roadmap.",
-            "Risk assessment and launch recommendation.",
+            {
+              title: "Sellers",
+              points: ["Pass back eligible garments and recover value."],
+            },
+            {
+              title: "Buyers",
+              points: ["Discover clothes that are new to them."],
+            },
+            {
+              title: "Myntra",
+              points: ["Stay in the relationship after the first purchase."],
+            },
           ],
         },
         {
           type: "callout",
-          text: "Myntra Loop is an independent portfolio concept. It has not been implemented, approved or validated by Myntra. All financial examples are illustrative, and the research findings are exploratory rather than representative market estimates.",
+          text: "Buy on Myntra. Wear it. Pass it back. Give fashion another life.",
+        },
+        {
+          type: "note",
+          text: "Independent portfolio concept. Not implemented, approved or validated by Myntra. Financial examples are illustrative, and the research is exploratory.",
         },
       ],
     },
