@@ -29,7 +29,7 @@ import {
 } from "./caseContent"
 
 export function CatchMyVibeCaseStudy() {
-  const [active, setActive] = useState(sections[0].id)
+  const [active, setActive] = useState<string>(sections[0].id)
   const [showTop, setShowTop] = useState(false)
 
   useEffect(() => {
