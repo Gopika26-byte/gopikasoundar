@@ -1,13 +1,12 @@
 import { Reveal } from "../components/Reveal"
 import { CaseStudyShowcase } from "../components/CaseStudyShowcase"
+import { MyntraLoopCard } from "../components/MyntraLoopCard"
 import { ViewProjectCursor } from "../components/ViewProjectCursor"
 import catchMyVibeVisual from "../assets/catchmyvibe-banner.jpg"
-import myntraLoopVisual from "../assets/myntra-loop.jpg"
 import trustedCircleVisual from "../assets/trusted-circle-savings.jpg"
 import { caseStudies } from "../data/site"
 
 const caseStudyVisuals: Record<string, string> = {
-  "myntra-loop": myntraLoopVisual,
   "creator-ecosystem": catchMyVibeVisual,
   "team-collaboration": trustedCircleVisual,
 }
@@ -26,17 +25,21 @@ export function Work() {
         <div id="work-start" className="work-showcases">
           {caseStudies.map((study, index) => (
             <Reveal key={study.slug} delay={index * 90}>
-              <CaseStudyShowcase
-                category={study.category}
-                status={study.status ?? "Independent exercise"}
-                title={study.title}
-                description={study.summary}
-                tags={study.tags}
-                tone={study.tone}
-                slug={study.slug}
-                href={`/work/${study.slug}`}
-                visualSrc={caseStudyVisuals[study.slug]}
-              />
+              {study.slug === "myntra-loop" ? (
+                <MyntraLoopCard />
+              ) : (
+                <CaseStudyShowcase
+                  category={study.category}
+                  status={study.status ?? "Independent exercise"}
+                  title={study.title}
+                  description={study.summary}
+                  tags={study.tags}
+                  tone={study.tone}
+                  slug={study.slug}
+                  href={`/work/${study.slug}`}
+                  visualSrc={caseStudyVisuals[study.slug]}
+                />
+              )}
             </Reveal>
           ))}
         </div>

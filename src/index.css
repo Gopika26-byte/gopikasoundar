@@ -1832,6 +1832,170 @@ dialog.teardown-lightbox::backdrop {
   }
 }
 
+.myntra-card {
+  display: grid;
+  gap: 1.5rem;
+  padding: 1.5rem 1.25rem 1.35rem;
+  overflow: hidden;
+  color: #241c19;
+  background: #fff9f4;
+  border: 1px solid #ebddd3;
+  border-radius: 28px;
+  box-shadow: 0 12px 32px rgba(70, 48, 30, 0.05);
+}
+
+.myntra-card-kicker {
+  margin: 0;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  line-height: 1.4;
+}
+
+.myntra-card-status {
+  margin: 0.55rem 0 0;
+  color: #d45345;
+  font-size: 0.95rem;
+  font-weight: 600;
+  line-height: 1.35;
+}
+
+.myntra-card-title {
+  max-width: 8.8em;
+  margin: 0.7rem 0 0;
+  font-family: var(--font-serif);
+  font-size: clamp(2.15rem, 4.6vw, 3.15rem);
+  font-weight: 400;
+  line-height: 0.98;
+  letter-spacing: -0.03em;
+}
+
+.myntra-card-summary {
+  max-width: 34rem;
+  margin: 0.85rem 0 0;
+  color: #3f342f;
+  font-size: 1.02rem;
+  line-height: 1.45;
+}
+
+.myntra-card-panel {
+  max-width: 34rem;
+  margin-top: 1.35rem;
+  padding: 1.25rem 1.35rem 1.3rem;
+  color: #fff;
+  background: linear-gradient(180deg, #e88876 0%, #d96f5b 100%);
+  border-radius: 1.35rem;
+}
+
+.myntra-card-panel h4 {
+  margin: 0;
+  font-size: 1.35rem;
+  font-weight: 650;
+  letter-spacing: -0.02em;
+  line-height: 1.2;
+}
+
+.myntra-card-panel p {
+  margin: 0.45rem 0 0;
+  font-size: 0.98rem;
+  font-weight: 450;
+  line-height: 1.45;
+}
+
+.myntra-card-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-top: 1.25rem;
+}
+
+.myntra-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.45rem;
+  min-height: 2.7rem;
+  padding: 0.55rem 1.15rem;
+  color: #241c19;
+  font-size: 0.95rem;
+  font-weight: 600;
+  line-height: 1;
+  text-decoration: none;
+  border-radius: 999px;
+  transition: background-color 160ms ease, outline-color 160ms ease;
+}
+
+.myntra-btn:focus-visible {
+  outline: 2px solid #241c19;
+  outline-offset: 3px;
+}
+
+.myntra-btn--fill {
+  background: #f6cfc2;
+}
+
+.myntra-btn--fill:hover,
+.myntra-btn--fill:focus-visible {
+  background: #f3c2b2;
+}
+
+.myntra-btn--line {
+  background: #fff9f4;
+  border: 1.5px solid #e07a68;
+}
+
+.myntra-btn--line:hover,
+.myntra-btn--line:focus-visible {
+  background: #fff;
+}
+
+.myntra-card-stage {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.myntra-card-phone {
+  display: block;
+  width: min(100%, 22rem);
+  height: auto;
+}
+
+@media (max-width: 519px) {
+  .myntra-card-actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+}
+
+@media (min-width: 760px) {
+  .myntra-card {
+    grid-template-columns: minmax(0, 1.02fr) minmax(16rem, 0.98fr);
+    align-items: stretch;
+    gap: 0;
+    padding: 0;
+  }
+
+  .myntra-card-copy {
+    padding: 2.15rem 1.25rem 1.9rem 2.5rem;
+  }
+
+  .myntra-card-title {
+    font-size: clamp(2.55rem, 2.85vw, 3.25rem);
+  }
+
+  .myntra-card-stage {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+  }
+
+  .myntra-card-phone {
+    width: 100%;
+    height: auto;
+  }
+}
+
 .prd-doc {
   --prd-rx: 0deg;
   --prd-ry: 0deg;
