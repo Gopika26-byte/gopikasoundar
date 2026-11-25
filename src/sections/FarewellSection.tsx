@@ -33,13 +33,13 @@ function FarewellContent() {
   return (
     <div className="farewell-content">
       <p className="load-in font-sans text-[clamp(1.8rem,3vw,2.4rem)] font-medium tracking-tight text-coral">
-        Adiós, Amigos!
+        That's a wrap!
       </p>
       <h2
         id="farewell-heading"
         className="load-in mt-2 font-sans text-[clamp(2.4rem,4.4vw,4rem)] leading-[1.05] font-semibold tracking-tight text-ink [animation-delay:80ms]"
       >
-        This was Gopika.
+        Let's build something meaningful.
       </h2>
       <FarewellActions />
       <ul className="load-in farewell-contacts [animation-delay:220ms]">
