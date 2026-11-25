@@ -1,41 +1,14 @@
-import { Link } from "react-router-dom"
 import { Reveal } from "../components/Reveal"
 import { CaseStudyShowcase } from "../components/CaseStudyShowcase"
+import { MyntraLoopCard } from "../components/MyntraLoopCard"
 import { ViewProjectCursor } from "../components/ViewProjectCursor"
 import catchMyVibeVisual from "../assets/catchmyvibe-banner.jpg"
-import myntraLoopCard from "../assets/myntra-loop-card.jpg"
 import trustedCircleVisual from "../assets/trusted-circle-savings.jpg"
-import { caseStudies, prdDocuments } from "../data/site"
+import { caseStudies } from "../data/site"
 
 const caseStudyVisuals: Record<string, string> = {
   "creator-ecosystem": catchMyVibeVisual,
   "team-collaboration": trustedCircleVisual,
-}
-
-function MyntraLoopCard() {
-  const notion = prdDocuments.find((document) => document.slug === "myntra-loop")?.href ?? ""
-
-  return (
-    <div className="case-showcase case-showcase--banner">
-      <Link
-        to="/work/myntra-loop"
-        className="myntra-card-open"
-        aria-label="View Overview of Turning Pre-Loved Fashion into Future Loyalty — Myntra Loop"
-      >
-        <img src={myntraLoopCard} width={1024} height={576} alt="" />
-      </Link>
-      <a
-        className="myntra-card-notion"
-        href={notion}
-        target="_blank"
-        rel="noopener noreferrer"
-        data-no-view-cursor=""
-      >
-        Read Detailed Case Study
-        <span className="sr-only"> (opens in a new tab)</span>
-      </a>
-    </div>
-  )
 }
 
 export function Work() {

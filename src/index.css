@@ -1832,50 +1832,379 @@ dialog.teardown-lightbox::backdrop {
   }
 }
 
-.case-showcase--banner {
-  position: relative;
-  display: block;
-  padding: 0;
-  background: #fff9f4;
-}
-
-.myntra-card-open {
-  display: block;
-  color: inherit;
-  text-decoration: none;
-}
-
-.case-showcase--banner img {
-  display: block;
-  width: 100%;
-  height: auto;
-}
-
-.myntra-card-notion {
-  position: absolute;
-  top: 83.3%;
-  left: 23.4%;
-  z-index: 2;
-  width: 25.4%;
-  height: 7.6%;
+.myntra-card {
+  display: grid;
+  gap: 1.5rem;
+  padding: 1.5rem 1.25rem 1.35rem;
   overflow: hidden;
-  color: transparent;
+  color: #241c19;
+  background: #fff9f4;
+  border: 1px solid #ebddd3;
+  border-radius: 28px;
+  box-shadow: 0 12px 32px rgba(70, 48, 30, 0.05);
+}
+
+.myntra-card-kicker {
+  margin: 0;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  line-height: 1.4;
+}
+
+.myntra-card-status {
+  margin: 0.55rem 0 0;
+  color: #d45345;
+  font-size: 0.95rem;
+  font-weight: 600;
+  line-height: 1.35;
+}
+
+.myntra-card-title {
+  max-width: 8.8em;
+  margin: 0.7rem 0 0;
+  font-family: var(--font-serif);
+  font-size: clamp(2.15rem, 4.6vw, 3.15rem);
+  font-weight: 400;
+  line-height: 0.98;
+  letter-spacing: -0.03em;
+}
+
+.myntra-card-summary {
+  max-width: 34rem;
+  margin: 0.85rem 0 0;
+  color: #3f342f;
+  font-size: 1.02rem;
+  line-height: 1.45;
+}
+
+.myntra-card-panel {
+  max-width: 34rem;
+  margin-top: 1.35rem;
+  padding: 1.25rem 1.35rem 1.3rem;
+  color: #fff;
+  background: linear-gradient(180deg, #e88876 0%, #d96f5b 100%);
+  border-radius: 1.35rem;
+}
+
+.myntra-card-panel h4 {
+  margin: 0;
+  font-size: 1.35rem;
+  font-weight: 650;
+  letter-spacing: -0.02em;
+  line-height: 1.2;
+}
+
+.myntra-card-panel p {
+  margin: 0.45rem 0 0;
+  font-size: 0.98rem;
+  font-weight: 450;
+  line-height: 1.45;
+}
+
+.myntra-card-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-top: 1.25rem;
+}
+
+.myntra-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.45rem;
+  min-height: 2.7rem;
+  padding: 0.55rem 1.15rem;
+  color: #241c19;
+  font-size: 0.95rem;
+  font-weight: 600;
+  line-height: 1;
+  text-decoration: none;
   border-radius: 999px;
 }
 
-.myntra-card-notion:focus-visible {
-  outline: 2px solid #b84538;
-  outline-offset: 3px;
+.myntra-btn--fill {
+  background: #f6cfc2;
 }
 
-.has-view-cursor .myntra-card-notion {
-  cursor: pointer;
+.myntra-btn--fill:hover,
+.myntra-btn--fill:focus-visible {
+  background: #f3c2b2;
 }
 
-@media (min-width: 760px) {
-  .case-showcase--banner {
-    display: block;
-    grid-template-columns: none;
+.myntra-btn--line {
+  background: #fff9f4;
+  border: 1.5px solid #e07a68;
+}
+
+.myntra-btn--line:hover,
+.myntra-btn--line:focus-visible {
+  background: #fff;
+}
+
+.myntra-card-stage {
+  position: relative;
+  display: grid;
+  min-height: 22rem;
+  place-items: center;
+}
+
+.myntra-blob {
+  position: absolute;
+  display: block;
+  pointer-events: none;
+}
+
+.myntra-blob--back {
+  top: -6%;
+  right: -8%;
+  width: 78%;
+  height: 72%;
+  background: radial-gradient(circle at 42% 42%, #fde8df 0%, #f6d3c6 62%, transparent 74%);
+  border-radius: 58% 42% 48% 52%;
+}
+
+.myntra-blob--front {
+  right: -14%;
+  bottom: -8%;
+  width: 46%;
+  height: 34%;
+  background: #f8ddd2;
+  border-radius: 50%;
+}
+
+.myntra-sparks {
+  position: absolute;
+  top: 8%;
+  right: 8%;
+  z-index: 2;
+  display: flex;
+  gap: 0.28rem;
+  transform: rotate(18deg);
+}
+
+.myntra-sparks i {
+  display: block;
+  width: 0.28rem;
+  height: 1.35rem;
+  background: #e46b5c;
+  border-radius: 999px;
+}
+
+.myntra-sparks i:nth-child(2) {
+  height: 1.7rem;
+  transform: translateY(-0.15rem);
+}
+
+.myntra-phone {
+  position: relative;
+  z-index: 1;
+  width: min(16.5rem, 78%);
+  padding: 0.55rem;
+  background: #fff;
+  border-radius: 2.15rem;
+  box-shadow:
+    0 22px 40px rgba(90, 48, 28, 0.16),
+    inset 0 0 0 1px #efe4dc;
+  transform: rotate(-8deg);
+}
+
+.myntra-phone-screen {
+  padding: 0.7rem 0.75rem 0.8rem;
+  overflow: hidden;
+  background: linear-gradient(180deg, #fffdfb 0%, #fff6f1 100%);
+  border: 2px solid #1c1a18;
+  border-radius: 1.7rem;
+}
+
+.myntra-status,
+.myntra-brand,
+.myntra-loop-rows li {
+  display: flex;
+  align-items: center;
+}
+
+.myntra-status {
+  justify-content: space-between;
+  color: #241c19;
+  font-size: 0.62rem;
+  font-weight: 600;
+}
+
+.myntra-status-marks {
+  width: 2.4rem;
+  height: 0.38rem;
+  background:
+    linear-gradient(#241c19, #241c19) 0 50% / 0.7rem 0.28rem no-repeat,
+    linear-gradient(#241c19, #241c19) 0.9rem 50% / 0.55rem 0.28rem no-repeat,
+    linear-gradient(#241c19, #241c19) 1.65rem 50% / 0.7rem 0.28rem no-repeat;
+  opacity: 0.8;
+}
+
+.myntra-brand {
+  justify-content: center;
+  gap: 0.35rem;
+  margin-top: 0.35rem;
+  font-size: 0.78rem;
+  font-weight: 600;
+}
+
+.myntra-mark {
+  width: 1.15rem;
+  height: 1.15rem;
+}
+
+.myntra-loop-word {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.05rem;
+  margin: 0.15rem 0 0;
+  color: #1a1614;
+  font-size: 2.55rem;
+  font-weight: 600;
+  letter-spacing: -0.06em;
+  line-height: 1;
+}
+
+.myntra-loop-mark {
+  width: 2.15rem;
+  height: 1.25rem;
+  margin: 0 0.05rem;
+}
+
+.myntra-loop-line {
+  margin: 0.2rem 0 0;
+  color: #241c19;
+  font-size: 0.78rem;
+  font-weight: 600;
+  line-height: 1.25;
+  text-align: center;
+}
+
+.myntra-stack {
+  position: relative;
+  width: 8.2rem;
+  height: 5.6rem;
+  margin: 0.55rem auto 0.7rem;
+}
+
+.myntra-fold {
+  position: absolute;
+  left: 0.35rem;
+  display: block;
+  width: 6.8rem;
+  height: 1.7rem;
+  border-radius: 0.7rem 0.7rem 0.45rem 0.45rem;
+  background-image: repeating-linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0.28) 0 2px,
+    transparent 2px 7px
+  );
+  box-shadow: inset 0 -6px 0 rgba(80, 40, 20, 0.06);
+}
+
+.myntra-fold--sand {
+  top: 0.15rem;
+  background-color: #e7c3ae;
+}
+
+.myntra-fold--rose {
+  top: 1.6rem;
+  background-color: #d98984;
+}
+
+.myntra-fold--olive {
+  top: 3.05rem;
+  background-color: #8ea36a;
+}
+
+.myntra-tag {
+  position: absolute;
+  top: 1.15rem;
+  right: 0.15rem;
+  display: grid;
+  width: 1.7rem;
+  height: 2.15rem;
+  place-items: center;
+  background: #f6e7cf;
+  border-radius: 0.25rem 0.25rem 0.35rem 0.35rem;
+  box-shadow: 0 4px 8px rgba(80, 40, 20, 0.08);
+  transform: rotate(8deg);
+}
+
+.myntra-tag::before {
+  content: "";
+  position: absolute;
+  top: -0.45rem;
+  left: 0.55rem;
+  width: 0.45rem;
+  height: 0.45rem;
+  border: 2px solid #c4a574;
+  border-radius: 50%;
+}
+
+.myntra-tag svg {
+  width: 0.95rem;
+  height: 0.95rem;
+}
+
+.myntra-loop-rows {
+  display: grid;
+  gap: 0.35rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.myntra-loop-rows li {
+  gap: 0.4rem;
+  min-height: 1.7rem;
+  padding: 0.2rem 0.45rem;
+  background: rgba(255, 255, 255, 0.72);
+  border: 1px solid #f0e2d8;
+  border-radius: 999px;
+}
+
+.myntra-loop-rows svg {
+  flex: none;
+  width: 0.95rem;
+  height: 0.95rem;
+}
+
+.myntra-loop-rows span {
+  flex: 1;
+  font-size: 0.68rem;
+  font-weight: 600;
+  line-height: 1.2;
+}
+
+@media (max-width: 519px) {
+  .myntra-card-actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+}
+
+@media (min-width: 900px) {
+  .myntra-card {
+    grid-template-columns: minmax(0, 1.12fr) minmax(18rem, 0.88fr);
+    align-items: center;
+    gap: 0.5rem 1rem;
+    padding: 2.35rem 1.4rem 2.15rem 2.6rem;
+  }
+
+  .myntra-card-title {
+    font-size: clamp(2.6rem, 3vw, 3.35rem);
+  }
+
+  .myntra-card-stage {
+    min-height: 34rem;
+  }
+
+  .myntra-phone {
+    width: 17.5rem;
   }
 }
 
