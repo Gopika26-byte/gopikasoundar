@@ -1,3 +1,5 @@
+import { ChevronDown } from "lucide-react"
+import { useState } from "react"
 import { Reveal } from "../components/Reveal"
 import annaLogo from "../assets/anna-university.png"
 import bitsomLogo from "../assets/bitsom.jpg"
@@ -65,20 +67,91 @@ function DeskScene() {
   )
 }
 
-function StudyScene() {
+const academicCards = [
+  {
+    id: "srm",
+    tone: "peach",
+    title: "Bachelor's Degree (UG)",
+    dates: "2018 – 2021",
+    copy: "Built a strong foundation in computer science and core technology concepts.",
+  },
+  {
+    id: "anna",
+    tone: "lavender",
+    title: "Master of Computer Science (PG)",
+    dates: "2022 – 2024",
+    copy: "Deepened my technical expertise and problem-solving skills with a focus on real-world applications.",
+  },
+  {
+    id: "bitsom",
+    tone: "peach",
+    title: "Product Management with Generative & Agentic AI",
+    dates: "Jan 2026 – Nov 2026",
+    status: "Completed",
+    copy: "A hands-on, industry-focused program on product management with GenAI and Agentic AI.",
+  },
+] as const
+
+function AcademicCards() {
+  const [openId, setOpenId] = useState<string | null>(null)
+
   return (
-    <svg viewBox="0 0 200 150" role="img" aria-label="Graduation cap on a stack of books">
-      <path d="M156 78c10-16 24-14 20 2-2 8-10 12-12 20h-10c3-8-6-12 2-22z" fill="#C9D7B8" />
-      <rect x="162" y="100" width="14" height="10" rx="2" fill="#E7C4A8" />
-      <rect x="36" y="104" width="112" height="22" rx="4" fill="#E4D4F2" />
-      <rect x="44" y="82" width="104" height="22" rx="4" fill="#CDB6E4" />
-      <rect x="40" y="60" width="108" height="22" rx="4" fill="#F3E7FA" />
-      <path d="M96 28l48 16-48 16-48-16z" fill="#B995CE" />
-      <path d="M96 44v22" stroke="#8E6EAE" strokeWidth="2" strokeLinecap="round" />
-      <circle cx="96" cy="68" r="3" fill="#EFC56D" />
-      <path d="M140 46c8 10 6 20-2 24" fill="none" stroke="#EFC56D" strokeWidth="1.8" strokeLinecap="round" />
-      <circle cx="136" cy="72" r="2.4" fill="#EFC56D" />
-    </svg>
+    <div className="edu-grid">
+      {academicCards.map((card) => {
+        const open = openId === card.id
+        const panelId = `education-${card.id}`
+        return (
+          <article key={card.id} className={`edu-card edu-card--${card.tone}${open ? " is-open" : ""}`}>
+            <h3 className="edu-card-heading">
+              <button
+                type="button"
+                className="edu-card-toggle"
+                aria-expanded={open}
+                aria-controls={panelId}
+                onClick={() => setOpenId((current) => (current === card.id ? null : card.id))}
+              >
+                {card.id === "srm" ? (
+                  <span className="edu-logo edu-logo--srm">
+                    <img src={srmLogo} alt="SRM Institute of Science and Technology" />
+                  </span>
+                ) : null}
+                {card.id === "anna" ? (
+                  <span className="edu-logo">
+                    <img src={annaLogo} alt="Anna University" />
+                  </span>
+                ) : null}
+                {card.id === "bitsom" ? (
+                  <span className="edu-logo edu-logo--pair">
+                    <img src={bitsomLogo} alt="BITSOM, BITS School of Management" />
+                    <span className="edu-logo-rule" aria-hidden="true" />
+                    <img src={masaiLogo} alt="MASAI School" />
+                  </span>
+                ) : null}
+                <span className="edu-title">{card.title}</span>
+                <span className="edu-foot">
+                  <span className="edu-date">
+                    <CalendarIcon />
+                    {card.dates}
+                  </span>
+                  {"status" in card ? (
+                    <span className="edu-done">
+                      <span aria-hidden="true">✓</span>
+                      {card.status}
+                    </span>
+                  ) : null}
+                </span>
+                <span className="edu-arrow" aria-hidden="true">
+                  <ChevronDown size={15} strokeWidth={1.75} />
+                </span>
+                <span id={panelId} className="edu-detail" role="region" aria-hidden={!open}>
+                  <span className="edu-detail-inner">{card.copy}</span>
+                </span>
+              </button>
+            </h3>
+          </article>
+        )
+      })}
+    </div>
   )
 }
 
@@ -162,77 +235,7 @@ export function ExperienceEducationSection() {
             <span />
           </div>
           <h2 className="display foundation-heading">My Academic Foundation</h2>
-          <div className="foundation-panel">
-            <Sparkles />
-            <aside className="foundation-side">
-              <h3 className="display foundation-aside-title">
-                A blend of Technology, Depth and Product Thinking
-              </h3>
-              <p className="foundation-aside-copy">
-                My academic journey has given me a strong foundation in technology, problem-solving and product
-                thinking.
-              </p>
-              <div className="foundation-scene">
-                <StudyScene />
-              </div>
-            </aside>
-            <div className="foundation-main">
-              <article className="foundation-qual">
-                <div>
-                  <h3>Product Management with Generative & Agentic AI</h3>
-                  <div className="foundation-pills">
-                    <p className="foundation-pill">
-                      <CalendarIcon />
-                      Jan 2026 – Nov 2026
-                    </p>
-                    <p className="foundation-pill foundation-pill--done">
-                      <span aria-hidden="true">✓</span>
-                      Completed in November 2026
-                    </p>
-                  </div>
-                  <p className="foundation-qual-copy">
-                    A hands-on, industry-focused program on product management with GenAI and Agentic AI.
-                  </p>
-                </div>
-                <div className="foundation-brand foundation-brand--stack">
-                  <img src={bitsomLogo} alt="BITSOM, BITS School of Management" />
-                  <p>Learning Partner</p>
-                  <img src={masaiLogo} alt="MASAI School" />
-                </div>
-              </article>
-              <article className="foundation-qual">
-                <div>
-                  <h3>Master of Computer Science (PG)</h3>
-                  <p className="foundation-pill">
-                    <CalendarIcon />
-                    2022 – 2024
-                  </p>
-                  <p className="foundation-qual-copy">
-                    Deepened my technical expertise and problem-solving skills with a focus on real-world
-                    applications.
-                  </p>
-                </div>
-                <div className="foundation-brand">
-                  <img src={annaLogo} alt="Anna University" />
-                </div>
-              </article>
-              <article className="foundation-qual">
-                <div>
-                  <h3>Bachelor's Degree (UG)</h3>
-                  <p className="foundation-pill">
-                    <CalendarIcon />
-                    2018 – 2021
-                  </p>
-                  <p className="foundation-qual-copy">
-                    Built a strong foundation in computer science and core technology concepts.
-                  </p>
-                </div>
-                <div className="foundation-brand foundation-brand--srm">
-                  <img src={srmLogo} alt="SRM Institute of Science and Technology" />
-                </div>
-              </article>
-            </div>
-          </div>
+          <AcademicCards />
         </div>
       </div>
     </section>
