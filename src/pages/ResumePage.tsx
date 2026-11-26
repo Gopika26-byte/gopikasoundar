@@ -8,6 +8,8 @@ export function ResumePage() {
     if (profile.resumeHref) window.location.replace(profile.resumeHref)
   }, [])
 
+  if (profile.resumeHref) return null
+
   return (
     <main className="mx-auto max-w-3xl px-5 pt-32 pb-24 sm:px-8">
       <Link to="/#contact" className="text-sm text-muted hover:text-ink">

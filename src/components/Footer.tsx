@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom"
-import { profile } from "../data/site"
+import { profile, resumeDownloadName } from "../data/site"
 import { SectionLink } from "./SectionLink"
 
 const year = new Date().getFullYear()
@@ -32,7 +32,9 @@ export function Footer() {
             </SectionLink>
           )}
           {profile.resumeHref ? (
-            <a href={profile.resumeHref}>Résumé</a>
+            <a href={profile.resumeHref} download={resumeDownloadName}>
+              Résumé
+            </a>
           ) : (
             <Link to="/resume">Résumé</Link>
           )}
