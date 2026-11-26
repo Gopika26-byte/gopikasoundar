@@ -2,7 +2,7 @@ import { Check, Copy, Download } from "lucide-react"
 import { useEffect, useRef, useState } from "react"
 import { Link } from "react-router-dom"
 import farewellImage from "../assets/farewell-meadow.jpg"
-import { profile } from "../data/site"
+import { profile, resumeDownloadName } from "../data/site"
 import { copyText } from "../lib/clipboard"
 
 const FEEDBACK_MS = 1800
@@ -55,7 +55,7 @@ function FarewellActions() {
   return (
     <div className="load-in mt-8 flex flex-wrap items-center gap-3 [animation-delay:160ms]">
       {profile.resumeHref ? (
-        <a className="btn btn-secondary" href={profile.resumeHref} download>
+        <a className="btn btn-secondary" href={profile.resumeHref} download={resumeDownloadName}>
           <Download size={16} aria-hidden="true" />
           Resume
         </a>

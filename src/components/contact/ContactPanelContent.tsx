@@ -1,6 +1,6 @@
 import { Check, CloudDownload, Copy, ExternalLink, Mail, Phone } from "lucide-react"
 import { useEffect, useId, useRef, useState, type ReactNode } from "react"
-import { profile } from "../../data/site"
+import { profile, resumeDownloadName } from "../../data/site"
 import { copyText } from "../../lib/clipboard"
 
 const FEEDBACK_MS = 1800
@@ -80,7 +80,7 @@ function ResumeDownloadButton() {
 
   if (profile.resumeHref) {
     return (
-      <a className="contact-resume" href={profile.resumeHref} download>
+      <a className="contact-resume" href={profile.resumeHref} download={resumeDownloadName}>
         Download resume
         <CloudDownload size={17} aria-hidden="true" />
       </a>

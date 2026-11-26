@@ -4,7 +4,10 @@
  * Case studies, lab scenarios, and notes are independent exercises — not employment history.
  */
 
+import { publicPath } from "../lib/publicPath"
 import { myntraLoopNarrative, type CaseNarrative } from "./myntraLoop"
+
+export const resumeDownloadName = "Gopika_Soundar_Product_Manager_Resume.pdf"
 
 export const profile = {
   name: "Gopika",
@@ -13,7 +16,7 @@ export const profile = {
   phone: "7338802855",
   linkedin: "https://www.linkedin.com/in/gopika-soundar-4a06a93b6/",
   instagram: "",
-  resumeHref: "",
+  resumeHref: publicPath(`/${resumeDownloadName}`),
   availability:
     "Open to conversations about B2B SaaS product roles, and to thoughtful collaborations.",
 }
